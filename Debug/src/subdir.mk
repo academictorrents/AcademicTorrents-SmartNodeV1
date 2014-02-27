@@ -17,7 +17,7 @@ CPP_DEPS += \
 src/lib_tests.o: ../src/lib_tests.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I"/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include" -I"/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/lib_tests.d" -o "$@" "$<"
+	g++ -I"/home/grigorii/workspace/cs410/AcademicTorrents-SmartNodeV1/include" -I"/home/grigorii/workspace/cs410/AcademicTorrents-SmartNodeV1/include/boost" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/lib_tests.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
