@@ -5,12 +5,12 @@
  *      Author: grigorii
  */
 
- #include <iostream>
- #include <vector>
- #include <fstream>
- #include <string>
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <string>
  //#include "StringSplit.hpp"
- #include "boost/algorithm/string/split.hpp"
+#include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
 using namespace std;
 #ifndef CSVREADER_H_
