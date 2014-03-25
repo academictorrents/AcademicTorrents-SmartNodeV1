@@ -37,6 +37,7 @@
 		std::string update_query;
 		std::ostringstream ss;
 		ofstream dot_torrent;
+		//TODO create new folders for the collection and subfolders if needed when downloading torrent files.
 		//write response to file
 		ss << stream;
 		dot_torrent.open(filepath.c_str());
