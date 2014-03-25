@@ -10,26 +10,27 @@
 using namespace async_at_client;
 
 	  async_at_connection::async_at_connection(boost::asio::io_service& io_service,
-		  const std::string& server, const std::string& path)
+		  const std::string& server, const std::string& path, void(*callback)(boost::asio::streambuf *))
 		: resolver_(io_service),
 		  socket_(io_service)
 	  {
 		// Form the request. We specify the "Connection: close" header so that the
 		// server will close the socket after transmitting the response. This will
 		// allow us to treat all data up until the EOF as the content.
+		callback_func = callback;
 		std::ostream request_stream(&request_);
-		request_stream << "GET " << path << " HTTP/1.0\r\n";
-		request_stream << "Host: " << server << "\r\n";
-		request_stream << "Accept: */*\r\n";
-		request_stream << "Connection: close\r\n\r\n";
+				request_stream << "GET " << path << " HTTP/1.0\r\n";
+				request_stream << "Host: " << server << "\r\n";
+				request_stream << "Accept: */*\r\n";
+				request_stream << "Connection: close\r\n\r\n";
 
-		// Start an asynchronous resolve to translate the server and service names
-		// into a list of endpoints.
-		tcp::resolver::query query(server, "http");
-		resolver_.async_resolve(query,
-			boost::bind(&async_at_connection::handle_resolve, this,
-			  boost::asio::placeholders::error,
-			  boost::asio::placeholders::iterator));
+				// Start an asynchronous resolve to translate the server and service names
+				// into a list of endpoints.
+				tcp::resolver::query query(server, "http");
+				resolver_.async_resolve(query,
+					boost::bind(&async_at_connection::handle_resolve, this,
+					  boost::asio::placeholders::error,
+					  boost::asio::placeholders::iterator));
 	  }
 
 	  void async_at_connection::handle_resolve(const boost::system::error_code& err,
@@ -129,8 +130,8 @@ using namespace async_at_client;
 
 		  // Write whatever content we already have to output.
 		  if (response_.size() > 0)
-			std::cout << &response_;
-
+//			std::cout << &response_;
+//			  callback_func(&response_);
 		  // Start reading remaining data until EOF.
 		  boost::asio::async_read(socket_, response_,
 			  boost::asio::transfer_at_least(1),
@@ -147,9 +148,6 @@ using namespace async_at_client;
 	  {
 		if (!err)
 		{
-		  // Write all of the data that has been read so far.
-		  std::cout << &response_;
-
 		  // Continue reading remaining data until EOF.
 		  boost::asio::async_read(socket_, response_,
 			  boost::asio::transfer_at_least(1),
@@ -160,20 +158,25 @@ using namespace async_at_client;
 		{
 		  std::cout << "Error: " << err << "\n";
 		}
+		else if(err == boost::asio::error::eof)
+		{
+			  // make call to callback at eof
+				callback_func(&response_);
+		}
 	  }
 
-int main()
-{
-  try
-  {
-    boost::asio::io_service io_service;
-    async_at_connection c(io_service, "www.academictorrents.com", "/collections.php?format=.csv");
-    io_service.run();
-  }
-  catch (std::exception& e)
-  {
-    std::cout << "Exception: " << e.what() << "\n";
-  }
-
-  return 0;
-}
+//int main()
+//{
+//  try
+//  {
+//    boost::asio::io_service io_service;
+//    async_at_connection c(io_service, "www.academictorrents.com", "/download/cb1655a57dd24345c9ea7a43c5ec09e03c7a0979.torrent"); //  /collection/umass-boston-cs-department.csv /collections.php?format=.csv
+//    io_service.run();
+//  }
+//  catch (std::exception& e)
+//  {
+//    std::cout << "Exception: " << e.what() << "\n";
+//  }
+//
+//  return 0;
+//}

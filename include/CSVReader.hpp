@@ -1,5 +1,6 @@
 /*
- * CSVReader.h
+ /*
+ * CSVReader.hpp
  *
  *  Created on: Feb 18, 2014
  *      Author: grigorii
@@ -9,23 +10,29 @@
 #include <vector>
 #include <fstream>
 #include <string>
- //#include "StringSplit.hpp"
+#include <sstream>
 #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
+#include <boost/asio.hpp>
+#include "TorrentInfo.hpp"
+#include "database.hpp"
+
 using namespace std;
 #ifndef CSVREADER_H_
 #define CSVREADER_H_
 
 class CSVReader {
 public:
-	CSVReader(string);
-	string getpath();
+	CSVReader(string,char*);
+	string getfileContent();
+	char* getDataBaseName();
 	void readAll();
 	~CSVReader();
 
 
-//private:
-    string filepath;
+private:
+	string fileContent;
+    char* dataBaseName;
 
 };
 

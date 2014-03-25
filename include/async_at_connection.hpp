@@ -13,6 +13,7 @@
 
 #ifndef AT_SOCKET_HPP_
 #define AT_SOCKET_HPP_
+#define AT_URL "www.academictorrents.com"
 
 namespace async_at_client
 {
@@ -35,8 +36,10 @@ namespace async_at_client
 		string server;
 		string path;
 
+		void (*callback_func)(boost::asio::streambuf *);
+
 		public:
-			async_at_connection(boost::asio::io_service&, const std::string&,const std::string&);
+			async_at_connection(boost::asio::io_service&, const std::string&,const std::string&, void (*callback)(boost::asio::streambuf *));
 			int connect();
 			string getCSV();
 
