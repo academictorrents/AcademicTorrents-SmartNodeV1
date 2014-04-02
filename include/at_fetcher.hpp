@@ -19,11 +19,11 @@ class at_fetcher{
 
 	public:
 		at_fetcher();
-		//returns path to the .torrent file given infohash
+		/* returns path to the .torrent file given infohash*/
 		std::string get_torrent_file_path(const std::string infohash);
-		//pass name of collection
+		/* pass name of collection*/
 		void parse_collection_csv(const std::string collection);
-		//param infohash
+		/* param infohash */
 		void download_torrent_file(const std::string infohash);
 	private:
 		std::string get_collection_csv(const std::string collection);

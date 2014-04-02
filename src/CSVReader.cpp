@@ -38,8 +38,9 @@ void CSVReader::readAll() {
 		while (getline(mydata, line)) {
 			if (i != 0) {
 				boost::split(fields, line, boost::is_any_of(","));
-				//TorrentInfo tor(fields);
-				//adding a torrent info to the data base
+				//TODO REMOVE TEST CODE
+				/* TorrentInfo tor(fields); */
+				/* adding a torrent info to the data base */
 				string q="INSERT OR IGNORE INTO Torrents VALUES(";
 				for (size_t j=0;j<fields.size();j++)
 					if (j<3 || j>6)
@@ -48,7 +49,8 @@ void CSVReader::readAll() {
 					q+=fields[j]+",";
 
 				q+="'');";
-				//q.replace(q.length()-1,2,");");
+				//TODO REMOVE TEST CODE
+				/* q.replace(q.length()-1,2,");"); */
 				db->query(&q[0]);
 			}
 			i++;

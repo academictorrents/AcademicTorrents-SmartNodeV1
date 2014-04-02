@@ -6,7 +6,7 @@
  */
 #include "at_fetcher.hpp"
 
-	//saves the infohash for when the callback is made.
+	/*saves the infohash for when the callback is made.*/
 	static string cur_infohash;
 
 	static void insert_csv_info(boost::asio::streambuf *stream){
@@ -38,14 +38,15 @@
 		std::ostringstream ss;
 		ofstream dot_torrent;
 		//TODO create new folders for the collection and subfolders if needed when downloading torrent files.
-		//write response to file
+		/*write response to file*/
 		ss << stream;
 		dot_torrent.open(filepath.c_str());
 		dot_torrent << ss.str() << endl;
 		dot_torrent.flush();
 		dot_torrent.close();
 
-		//Update database with new file path.
+		//TODO currently only check if the database has not path. Also check for the file in the directory in case of deletion.
+		/*Update database with new file path.*/
 		Database *db = new Database(DATABASE_NAME);
 		update_query = "UPDATE Torrents SET torrentpath=\"" + filepath + "\" WHERE infohash=\""+ cur_infohash + "\";";
 		db->query(update_query.c_str());
@@ -82,17 +83,18 @@
 		io_service.run();
 	}
 
-	//Create csv url given collection name
+	/* Create csv url given collection name */
 	std::string at_fetcher::create_csv_url(const std::string collection_name){
-		// ex: /collection/umass-boston-cs-department.csv
+		/* ex: /collection/umass-boston-cs-department.csv */
 		return "/collection/" + collection_name + ".csv";
 	}
 
 	std::string at_fetcher::create_dot_torrent_url(const std::string infohash){
-		// ex. /download/cb1655a57dd24345c9ea7a43c5ec09e03c7a0979.torrent
+		/* ex. /download/cb1655a57dd24345c9ea7a43c5ec09e03c7a0979.torrent */
 		return "/download/" + infohash + ".torrent";
 	}
 
+	//TODO REMOVE TEST CODE
 	int main (){
 		at_fetcher fetcher;
 		fetcher.parse_collection_csv("umass-boston-cs-department");

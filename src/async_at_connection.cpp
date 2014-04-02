@@ -14,18 +14,21 @@ using namespace async_at_client;
 		: resolver_(io_service),
 		  socket_(io_service)
 	  {
-		// Form the request. We specify the "Connection: close" header so that the
-		// server will close the socket after transmitting the response. This will
-		// allow us to treat all data up until the EOF as the content.
+		 /*
+		  * Form the request. We specify the "Connection: close" header so that the
+		  *	server will close the socket after transmitting the response. This will
+		  * allow us to treat all data up until the EOF as the content.
+		  * */
 		callback_func = callback;
 		std::ostream request_stream(&request_);
 				request_stream << "GET " << path << " HTTP/1.0\r\n";
 				request_stream << "Host: " << server << "\r\n";
 				request_stream << "Accept: */*\r\n";
 				request_stream << "Connection: close\r\n\r\n";
-
-				// Start an asynchronous resolve to translate the server and service names
-				// into a list of endpoints.
+				/*
+				 * Start an asynchronous resolve to translate the server and service names
+				 * into a list of endpoints.
+				 * */
 				tcp::resolver::query query(server, "http");
 				resolver_.async_resolve(query,
 					boost::bind(&async_at_connection::handle_resolve, this,
@@ -38,8 +41,10 @@ using namespace async_at_client;
 	  {
 		if (!err)
 		{
-		  // Attempt a connection to each endpoint in the list until we
-		  // successfully establish a connection.
+		/*
+		 *Attempt a connection to each endpoint in the list until we
+		 *successfully establish a connection.
+		 **/
 		  boost::asio::async_connect(socket_, endpoint_iterator,
 			  boost::bind(&async_at_connection::handle_connect, this,
 				boost::asio::placeholders::error));
@@ -54,7 +59,7 @@ using namespace async_at_client;
 	  {
 		if (!err)
 		{
-		  // The connection was successful. Send the request.
+		   /*The connection was successful. Send the request.*/
 		  boost::asio::async_write(socket_, request_,
 			  boost::bind(&async_at_connection::handle_write_request, this,
 				boost::asio::placeholders::error));
@@ -69,9 +74,11 @@ using namespace async_at_client;
 	  {
 		if (!err)
 		{
-		  // Read the response status line. The response_ streambuf will
-		  // automatically grow to accommodate the entire line. The growth may be
-		  // limited by passing a maximum size to the streambuf constructor.
+		  /*
+		   * Read the response status line. The response_ streambuf will
+		   * automatically grow to accommodate the entire line. The growth may be
+		   * limited by passing a maximum size to the streambuf constructor.
+		   * */
 		  boost::asio::async_read_until(socket_, response_, "\r\n",
 			  boost::bind(&async_at_connection::handle_read_status_line, this,
 				boost::asio::placeholders::error));
@@ -86,7 +93,7 @@ using namespace async_at_client;
 	  {
 		if (!err)
 		{
-		  // Check that response is OK.
+		  /* Check that response is OK. */
 		  std::istream response_stream(&response_);
 		  std::string http_version;
 		  response_stream >> http_version;
@@ -106,7 +113,7 @@ using namespace async_at_client;
 			return;
 		  }
 
-		  // Read the response headers, which are terminated by a blank line.
+		  /* Read the response headers, which are terminated by a blank line. */
 		  boost::asio::async_read_until(socket_, response_, "\r\n\r\n",
 			  boost::bind(&async_at_connection::handle_read_headers, this,
 				boost::asio::placeholders::error));
@@ -121,18 +128,17 @@ using namespace async_at_client;
 	  {
 		if (!err)
 		{
-		  // Process the response headers.
+		  /* Process the response headers.*/
 		  std::istream response_stream(&response_);
 		  std::string header;
 		  while (std::getline(response_stream, header) && header != "\r")
 			std::cout << header << "\n";
 		  std::cout << "\n";
 
-		  // Write whatever content we already have to output.
+		  /* Write whatever content we already have to output.*/
 		  if (response_.size() > 0)
-//			std::cout << &response_;
-//			  callback_func(&response_);
-		  // Start reading remaining data until EOF.
+
+		  /* Start reading remaining data until EOF.*/
 		  boost::asio::async_read(socket_, response_,
 			  boost::asio::transfer_at_least(1),
 			  boost::bind(&async_at_connection::handle_read_content, this,
