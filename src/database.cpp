@@ -1,6 +1,6 @@
 #include "database.hpp"
 #include <iostream>
-#include "sqlite3.h"
+#include <sqlite3.h>
 Database::Database(char* filename)
 {
     database = NULL;

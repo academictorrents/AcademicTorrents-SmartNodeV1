@@ -44,7 +44,7 @@ all: AcademicTorrents-SmartNodeV1
 AcademicTorrents-SmartNodeV1: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include" -o "AcademicTorrents-SmartNodeV1" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/home/lucnguyen/workspace/AT/AcademicTorrents-SmartNodeV1/include" -o "AcademicTorrents-SmartNodeV1" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
