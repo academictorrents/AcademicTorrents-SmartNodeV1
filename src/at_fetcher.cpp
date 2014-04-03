@@ -93,10 +93,10 @@
 		return "/download/" + infohash + ".torrent";
 	}
 
-	int main (){
-		at_fetcher fetcher;
-		fetcher.parse_collection_csv("umass-boston-cs-department");
-//		fetcher.download_torrent_file("cb1655a57dd24345c9ea7a43c5ec09e03c7a0979");
-		return 0;
-	}
+//	int main (){
+//		at_fetcher fetcher;
+//		fetcher.parse_collection_csv("umass-boston-cs-department");
+////		fetcher.download_torrent_file("cb1655a57dd24345c9ea7a43c5ec09e03c7a0979");
+//		return 0;
+//	}
 
