@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/CSVReader.cpp \
+../src/SmartNode.cpp \
 ../src/TorrentInfo.cpp \
 ../src/async_at_connection.cpp \
 ../src/at_fetcher.cpp \
@@ -12,6 +13,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./src/CSVReader.o \
+./src/SmartNode.o \
 ./src/TorrentInfo.o \
 ./src/async_at_connection.o \
 ./src/at_fetcher.o \
@@ -19,6 +21,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./src/CSVReader.d \
+./src/SmartNode.d \
 ./src/TorrentInfo.d \
 ./src/async_at_connection.d \
 ./src/at_fetcher.d \
