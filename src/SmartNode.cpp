@@ -49,9 +49,9 @@ int main(int argc, char **argv) {
 //		return 1;
 //	}
 	add_torrent_params p;
-	p.save_path = "./";
+	p.save_path = "./collections/";
 	std::cout << "saved path" << std::endl;
-	p.ti = new torrent_info(argv[1]);
+	p.ti = new torrent_info("./collections/b0700675b5b7756ba6243420a9db09380a5d27b2");
 	p.auto_managed = true;
 	std::cout << "added torrent info" << std::endl;
 	if (ec) {
