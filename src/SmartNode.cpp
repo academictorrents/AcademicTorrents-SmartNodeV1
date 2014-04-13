@@ -1,9 +1,9 @@
-/*
- * SmartNode.cpp
- *
- *  Created on: Mar 24, 2014
- *      Author: adrian
- */
+///*
+// * SmartNode.cpp
+// *
+// *  Created on: Mar 24, 2014
+// *      Author: adrian
+// */
 
 #define BOOST_ASIO_SEPARATE_COMPILATION
 //#define  BOOST_ASIO_DYN_LINK
@@ -19,6 +19,7 @@
 #include <libtorrent/error_code.hpp>
 #include <libtorrent/torrent_handle.hpp>
 #include <libtorrent/torrent_info.hpp>
+#include <libtorrent/settings.hpp>
 #include "async_at_connection.hpp"
 #include "CSVReader.hpp"
 #include "database.hpp"
@@ -35,29 +36,29 @@ bool yes(libtorrent::torrent_status const&)
 
 int main(int argc, char **argv) {
 	using namespace libtorrent;
-
-	//Database *db = new Database(DATABASE_NAME);
-	//vector<vector<string> > results = db->query("SELECT infohash from Torrents WHERE torrentpath!=\"\";");
+//
+//	Database *db = new Database(DATABASE_NAME);
+//	vector<vector<string> > results = db->query("SELECT infohash from Torrents WHERE torrentpath!=\"\";");
 
 	session s;
 	error_code ec;
-	s.listen_on(std::make_pair(6881, 6689), ec);
-	if (ec) {
-		fprintf(stderr, "failed to open listen socket: %s\n",
-				ec.message().c_str());
-		return 1;
-	}
+	s.listen_on(std::make_pair(6881, 6889));
+//	if (ec) {
+//		fprintf(stderr, "failed to open listen socket: %s\n",
+//				ec.message().c_str());
+//		return 1;
+//	}
 	add_torrent_params p;
-	p.save_path = "./collections";
+	p.save_path = "./";
 	std::cout << "saved path" << std::endl;
-	p.ti = new torrent_info(argv[1], ec);
+	p.ti = new torrent_info(argv[1]);
 	p.auto_managed = true;
 	std::cout << "added torrent info" << std::endl;
 	if (ec) {
 		fprintf(stderr, "%s\n", ec.message().c_str());
 		return 1;
 	}
-	s.add_torrent(p, ec);
+	s.add_torrent(p);
 	//s.pause();
 	std::cout << "added torrent to session" << std::endl;
 
@@ -88,7 +89,7 @@ int main(int argc, char **argv) {
 }
 
 #endif
-//
+
 //#ifndef DEBUG
 //
 //int main(int argc, char **argv) {

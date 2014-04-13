@@ -357,16 +357,10 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_alloc_helpers.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/addressof.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_alloc_hook.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/handler_alloc_hook.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/call_stack.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/tss_ptr.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/keyword_tss_ptr.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/task_io_service_thread_info.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/event.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_event.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/assert.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/posix_event.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_error.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_cont_helpers.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_continuation_hook.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_invoke_helpers.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_invoke_hook.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/system/error_code.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/system/config.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/system/api_config.hpp \
@@ -376,71 +370,46 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/cerrno.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/config/abi_prefix.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/config/abi_suffix.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/throw_error.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_exception.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/system/system_error.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/error.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/error.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/op_queue.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/thread_info_base.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_cont_helpers.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_continuation_hook.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_invoke_helpers.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_invoke_hook.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/io_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_type_requirements.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/service_registry.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/mutex.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_mutex.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/scoped_lock.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/posix_mutex.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/service_registry.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/service_registry.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/task_io_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/atomic_count.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/atomic_count.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/smart_ptr/detail/atomic_count.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/smart_ptr/detail/sp_has_sync.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/smart_ptr/detail/atomic_count_gcc_x86.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/call_stack.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/tss_ptr.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/keyword_tss_ptr.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/op_queue.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor_fwd.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/task_io_service_operation.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_tracking.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/handler_tracking.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/task_io_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/completion_handler.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/fenced_block.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/gcc_x86_fenced_block.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/operation.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/task_io_service.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/limits.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/epoll_reactor.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/object_pool.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor_op.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/select_interrupter.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/eventfd_select_interrupter.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/eventfd_select_interrupter.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/cstdint.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_types.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_base.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_set.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/timer_queue_set.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/wait_op.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/epoll_reactor.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/epoll_reactor.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/io_service.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/scoped_ptr.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_error.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/type_traits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/error.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/socket_base.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/io_control.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_types.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_option.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_exception.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/datagram_socket_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/buffer.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/array_fwd.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/buffer_sequence_adapter.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/buffer_sequence_adapter.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_null_buffers_op.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_accept_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_holder.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_ops.hpp \
@@ -464,7 +433,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/weak_ptr.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/weak_ptr.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/smart_ptr/weak_ptr.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/socket_ops.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_connect_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_recvfrom_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_sendto_op.hpp \
@@ -472,11 +440,21 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_recv_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_recvmsg_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_send_op.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/reactive_socket_service_base.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/epoll_reactor.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/limits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/object_pool.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/select_interrupter.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/eventfd_select_interrupter.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_base.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_set.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/wait_op.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/epoll_reactor.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_deadline_timer.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/deadline_timer_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/deadline_timer_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/cstdint.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/date_time_fwd.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_scheduler.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_scheduler_fwd.hpp \
@@ -534,7 +512,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/date_time/time_iterator.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/date_time/dst_rules.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_ptime.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/timer_queue_ptime.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_raw_socket.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/raw_socket_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_seq_packet_socket.hpp \
@@ -542,27 +519,18 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_serial_port.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/serial_port_base.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/serial_port_base.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/serial_port_base.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/serial_port_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_serial_port_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/descriptor_ops.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/descriptor_ops.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_descriptor_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/descriptor_read_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/descriptor_write_op.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/reactive_descriptor_service.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/reactive_serial_port_service.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/win_iocp_serial_port_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_signal_set.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/signal_set_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/signal_set_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/signal_handler.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/signal_op.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/signal_set_service.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/signal_blocker.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_signal_blocker.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/static_mutex.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_static_mutex.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_socket_acceptor.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/socket_acceptor_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_socket_iostream.hpp \
@@ -587,6 +555,7 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/buffered_read_stream.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/buffer_resize_guard.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/buffered_stream_storage.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/assert.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/buffered_read_stream.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/buffered_stream_fwd.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/buffered_stream.hpp \
@@ -605,7 +574,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/coroutine.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/basic_endpoint.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/detail/endpoint.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/detail/impl/endpoint.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/datagram_protocol.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/raw_protocol.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/seq_packet_protocol.hpp \
@@ -614,15 +582,11 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/address_v4.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/winsock_init.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v4.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v4.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/address_v6.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v6.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v6.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/basic_endpoint.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/detail/endpoint.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/detail/impl/endpoint.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/basic_endpoint.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/basic_resolver.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/basic_resolver_iterator.hpp \
@@ -634,12 +598,10 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/resolve_endpoint_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/resolve_op.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/resolver_service_base.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/scoped_ptr.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/thread.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_thread.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/posix_thread.ipp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/resolver_service_base.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/host_name.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/host_name.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/icmp.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/multicast.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/detail/socket_option.hpp \
@@ -651,7 +613,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/is_write_buffered.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/basic_endpoint.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/detail/endpoint.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/detail/impl/endpoint.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/connect_pair.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/datagram_protocol.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/stream_protocol.hpp \
@@ -681,7 +642,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/strand.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/strand_service.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/strand_service.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/strand_service.ipp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/streambuf.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/version.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/windows/basic_handle.hpp \
@@ -1416,25 +1376,13 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_alloc_hook.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/handler_alloc_hook.ipp:
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_cont_helpers.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/call_stack.hpp:
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_continuation_hook.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/tss_ptr.hpp:
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_invoke_helpers.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/keyword_tss_ptr.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/task_io_service_thread_info.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/event.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_event.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/assert.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/posix_event.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_error.hpp:
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_invoke_hook.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/system/error_code.hpp:
 
@@ -1454,28 +1402,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/config/abi_suffix.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/throw_error.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_exception.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/system/system_error.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/error.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/error.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/op_queue.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/thread_info_base.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_cont_helpers.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_continuation_hook.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_invoke_helpers.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/handler_invoke_hook.hpp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/io_service.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_type_requirements.hpp:
@@ -1488,11 +1414,7 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/scoped_lock.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/posix_mutex.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/service_registry.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/service_registry.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/task_io_service.hpp:
 
@@ -1506,13 +1428,19 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/smart_ptr/detail/atomic_count_gcc_x86.hpp:
 
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/call_stack.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/tss_ptr.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/keyword_tss_ptr.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/op_queue.hpp:
+
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor_fwd.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/task_io_service_operation.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/handler_tracking.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/handler_tracking.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/task_io_service.hpp:
 
@@ -1524,51 +1452,21 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/operation.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/task_io_service.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/limits.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/epoll_reactor.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/object_pool.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor_op.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/select_interrupter.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/eventfd_select_interrupter.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/eventfd_select_interrupter.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/cstdint.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_types.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_base.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_set.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/timer_queue_set.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/wait_op.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/epoll_reactor.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/epoll_reactor.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/io_service.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/scoped_ptr.hpp:
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_error.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/type_traits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/error.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/socket_base.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/io_control.hpp:
 
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_types.hpp:
+
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/socket_option.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/throw_exception.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/datagram_socket_service.hpp:
 
@@ -1580,9 +1478,9 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/buffer_sequence_adapter.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/buffer_sequence_adapter.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_null_buffers_op.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor_op.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_accept_op.hpp:
 
@@ -1630,8 +1528,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/smart_ptr/weak_ptr.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/socket_ops.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_connect_op.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_recvfrom_op.hpp:
@@ -1646,7 +1542,25 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_socket_send_op.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/reactive_socket_service_base.ipp:
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactor.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/epoll_reactor.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/limits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/object_pool.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/select_interrupter.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/eventfd_select_interrupter.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_base.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_set.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/wait_op.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/epoll_reactor.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_deadline_timer.hpp:
 
@@ -1655,6 +1569,8 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/deadline_timer_service.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/cstdint.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/date_time_fwd.hpp:
 
@@ -1770,8 +1686,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/timer_queue_ptime.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/timer_queue_ptime.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_raw_socket.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/raw_socket_service.hpp:
@@ -1786,25 +1700,17 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/serial_port_base.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/serial_port_base.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/serial_port_service.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_serial_port_service.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/descriptor_ops.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/descriptor_ops.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/reactive_descriptor_service.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/descriptor_read_op.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/descriptor_write_op.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/reactive_descriptor_service.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/reactive_serial_port_service.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/win_iocp_serial_port_service.hpp:
 
@@ -1817,16 +1723,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/signal_handler.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/signal_op.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/signal_set_service.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/signal_blocker.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_signal_blocker.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/static_mutex.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_static_mutex.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/basic_socket_acceptor.hpp:
 
@@ -1876,6 +1772,8 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/buffered_stream_storage.hpp:
 
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/assert.hpp:
+
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/buffered_read_stream.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/buffered_stream_fwd.hpp:
@@ -1912,8 +1810,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/detail/endpoint.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/detail/impl/endpoint.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/datagram_protocol.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/generic/raw_protocol.hpp:
@@ -1930,23 +1826,15 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v4.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v4.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/address_v6.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v6.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address_v6.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/address.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/basic_endpoint.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/detail/endpoint.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/detail/impl/endpoint.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/basic_endpoint.hpp:
 
@@ -1970,17 +1858,13 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/resolver_service_base.hpp:
 
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/scoped_ptr.hpp:
+
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/thread.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/posix_thread.hpp:
 
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/posix_thread.ipp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/resolver_service_base.ipp:
-
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/host_name.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/impl/host_name.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/ip/icmp.hpp:
 
@@ -2003,8 +1887,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/basic_endpoint.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/detail/endpoint.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/detail/impl/endpoint.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/local/connect_pair.hpp:
 
@@ -2063,8 +1945,6 @@ src/CSVReader.d: ../src/CSVReader.cpp \
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/strand_service.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/strand_service.hpp:
-
-/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/detail/impl/strand_service.ipp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/streambuf.hpp:
 
