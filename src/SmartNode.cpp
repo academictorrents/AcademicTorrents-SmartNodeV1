@@ -37,30 +37,39 @@ bool yes(libtorrent::torrent_status const&)
 int main(int argc, char **argv) {
 	using namespace libtorrent;
 //
-//	Database *db = new Database(DATABASE_NAME);
-//	vector<vector<string> > results = db->query("SELECT infohash from Torrents WHERE torrentpath!=\"\";");
+	Database *db = new Database(DATABASE_NAME);
+	vector<vector<string> > results = db->query("SELECT torrentpath from Torrents WHERE torrentpath!=\"\";");
 
 	session s;
 	error_code ec;
-	s.listen_on(std::make_pair(6881, 6889));
+	s.listen_on(std::make_pair(6800, 6800));
 //	if (ec) {
 //		fprintf(stderr, "failed to open listen socket: %s\n",
 //				ec.message().c_str());
 //		return 1;
 //	}
-	add_torrent_params p;
-	p.save_path = "./collections/";
-	std::cout << "saved path" << std::endl;
-	p.ti = new torrent_info("./collections/b0700675b5b7756ba6243420a9db09380a5d27b2.torrent");
-	p.auto_managed = true;
-	std::cout << "added torrent info" << std::endl;
-	if (ec) {
-		fprintf(stderr, "%s\n", ec.message().c_str());
-		return 1;
+
+	
+	for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
+	  vector<string> vec = *it_outer;
+	  for(std::vector<string>::iterator it_inner = vec.begin(); it_inner != vec.end(); ++it_inner){
+	    /*download the file*/
+	    std::cout << *it_inner << std::endl;
+	    add_torrent_params p;
+	    p.save_path = "./collections/";
+	    std::cout << "saved path" << std::endl;
+	    p.ti = new torrent_info(*it_inner);
+	    p.auto_managed = true;
+	    std::cout << "added torrent info" << std::endl;
+	    if (ec) {
+	      fprintf(stderr, "%s\n", ec.message().c_str());
+	      return 1;
+	    }
+	    s.add_torrent(p);
+	    //s.pause();
+	    std::cout << "added torrent to session" << std::endl;
+	  }
 	}
-	s.add_torrent(p);
-	//s.pause();
-	std::cout << "added torrent to session" << std::endl;
 
 	std::vector<torrent_status> ret;
 
@@ -74,7 +83,7 @@ int main(int argc, char **argv) {
 
 
 
-	std::cout << "got here" << std::endl;
+	//std::cout << "got here" << std::endl;
 	//s.resume();
 	while (ret[0].progress < 0.999) {
 		std::cout << "not done" << std::endl;

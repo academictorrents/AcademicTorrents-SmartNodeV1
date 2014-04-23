@@ -28,7 +28,7 @@
 				at_fetcher at_fetcher;
 				at_fetcher.download_torrent_file(*it_inner);
 			}
-		}
+		} 
 
 	}
 
