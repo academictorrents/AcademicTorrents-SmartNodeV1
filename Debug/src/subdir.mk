@@ -4,20 +4,35 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/lib_tests.cpp 
+../src/CSVReader.cpp \
+../src/SmartNode.cpp \
+../src/TorrentInfo.cpp \
+../src/async_at_connection.cpp \
+../src/at_fetcher.cpp \
+../src/database.cpp 
 
 OBJS += \
-./src/lib_tests.o 
+./src/CSVReader.o \
+./src/SmartNode.o \
+./src/TorrentInfo.o \
+./src/async_at_connection.o \
+./src/at_fetcher.o \
+./src/database.o 
 
 CPP_DEPS += \
-./src/lib_tests.d 
+./src/CSVReader.d \
+./src/SmartNode.d \
+./src/TorrentInfo.d \
+./src/async_at_connection.d \
+./src/at_fetcher.d \
+./src/database.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-src/lib_tests.o: ../src/lib_tests.cpp
+src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I"/home/grigorii/workspace/cs410/AcademicTorrents-SmartNodeV1/include" -I"/home/grigorii/workspace/cs410/AcademicTorrents-SmartNodeV1/include/boost" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/lib_tests.d" -o "$@" "$<"
+	g++ -I/usr/local/include -I/usr/local/include/libtorrent -I"/home/at/AcademicTorrents-SmartNodeV1/include" -O0 -g3 -Wall -c -fmessage-length=0 -DTORRENT_USE_OPENSSL -DWITH_SHIPPED_GEOIP_H -DBOOST_ASIO_HASH_MAP_BUCKETS=1021 -DBOOST_EXCEPTION_DISABLE -DBOOST_ASIO_ENABLE_CANCELIO -DBOOST_ASIO_DYN_LINK -DTORRENT_LINKING_SHARED -DTORRENT_DEBUG -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

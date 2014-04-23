@@ -5,7 +5,7 @@
  *      Author: grigorii
  */
 
-#include "TorrentInfo.h"
+#include "TorrentInfo.hpp"
 
 TorrentInfo::TorrentInfo(vector <string> TorrentInfoinfo) {
 	// TODO Auto-generated constructor stub
