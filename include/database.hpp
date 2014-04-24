@@ -23,7 +23,7 @@ class Database
 
 {
 public:
-    Database(char* filename);
+    Database();
     ~Database();
     bool open(char* filename);
     vector<vector<string> > query(const string query);
