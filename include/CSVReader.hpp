@@ -23,16 +23,16 @@ using namespace std;
 
 class CSVReader {
 public:
-	CSVReader(string,char*);
+	CSVReader(string);
 	string getfileContent();
-	char* getDataBaseName();
+//	char* getDataBaseName();
 	void readAll();
 	~CSVReader();
 
 
 private:
 	string fileContent;
-    char* dataBaseName;
+//    char* dataBaseName;
 
 };
 
