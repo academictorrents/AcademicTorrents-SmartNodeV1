@@ -579,8 +579,259 @@ src/SmartNode.d: ../src/SmartNode.cpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/algorithm/string/detail/classification.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/algorithm/string/predicate_facade.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/TorrentInfo.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/lexical_cast.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/lcast_precision.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/cast.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/converter.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/conversion_traits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/conversion_traits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/meta.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/int_float_mixture.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/int_float_mixture_enum.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/sign_mixture.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/sign_mixture_enum.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/is_subranged.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/multiplies.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/times.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/aux_/preprocessed/gcc/times.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/converter_policies.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/converter.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/bounds.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/bounds.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/numeric_cast_traits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/has_left_shift.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/detail/has_binary_operator.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/has_right_shift.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/sign.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/config.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/user.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/fenv.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/math_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/detail/round_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/promotion.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/is_floating_point.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/policies/policy.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/limits/list.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/list20.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/list10.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/list0.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/push_front.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/item.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/tag.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/pop_front.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/push_back.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/front.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/clear.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/O1_size.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/size.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/empty.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/begin_end.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/iterator.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/include_preprocessed.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/preprocessed/plain/list10.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/preprocessed/plain/list20.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/aux_/preprocessed/gcc/list.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/remove_if.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/config/no_tr1/complex.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/detail/fp_traits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/endian.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/detail/endian_compat.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/other/endian.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/version_number.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/make.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/detail/test.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/library/c/gnu.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/library/c/_prefix.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/detail/_cassert.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/macos.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/bsdi.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/dragonfly.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/free.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/open.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/net.h \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/fpclassify.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/real_cast.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/container/container_fwd.hpp \
  /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/database.hpp \
- /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/database.hpp
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/database.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_connection.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_reply.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_header.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_request.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_request_handler.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/ptree.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/ptree_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/string_path.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/id_translator.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/exceptions.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/any.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/decay.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/remove_bounds.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/exception_implementation.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/ptree_utils.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/stream_translator.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/optional/optional_io.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/utility/value_init.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/sequenced_index.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/detail/seq_index_node.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/detail/seq_index_ops.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/sequenced_index_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/ptree_implementation.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/json_parser.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/json_parser_read.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/json_parser_error.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/file_parser_error.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/include/classic.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/version.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/debug.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/debug/minimal.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/config.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/nil.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/namespace.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/match.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/assert.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/safe_bool.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/impl/match_attr_traits.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/impl/match.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/parser.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/scanner.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/parser_id.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/scanner_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/impl/parser.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/primitives.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/directives.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/skipper.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/impl/primitives.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/skipper_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/impl/skipper.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/numerics.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/directives.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/composite.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/compressed_pair.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/compressed_pair.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/is_empty.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/numerics_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/impl/numerics.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/subrule.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/parser_context.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/subrule_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/subrule.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/rule.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/rule.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/grammar.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/grammar.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/object_with_id.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/actions.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/epsilon.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/parser_traits.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/parser_traits.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/operators.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/sequence.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/as_parser.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/sequence.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/sequential_and.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/sequential_and.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/sequential_or.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/sequential_or.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/alternative.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/alternative.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/difference.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/difference.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/intersection.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/intersection.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/exclusive_or.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/exclusive_or.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/kleene_star.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/kleene_star.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/positive.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/positive.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/optional.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/optional.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/list.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/list.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/no_actions.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/assign_actor.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/ref_value_actor.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/ref_const_ref_actor.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/push_back_actor.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/fundamental.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/fundamental.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/traverse.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/traverse.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling/exceptions.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling/exceptions_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling/impl/exceptions.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/file_iterator.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/iterator_adaptors.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/file_iterator_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/impl/file_iterator.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/fixed_size_queue.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/position_iterator.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/position_iterator_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/impl/position_iterator.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/multi_pass.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/multi_pass_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/symbols.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/symbols_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/impl/symbols.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/impl/tst.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/chset.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/basic_chset.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/range_run.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/range_run.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/basic_chset.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/chset_operators.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset_operators.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/escape_char.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/escape_char_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/escape_char.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/functor_parser.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/loops.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/confix.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/confix_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/confix.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/refactoring.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/refactoring.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/lists.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/lists_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/lists.ipp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/distinct.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/distinct_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/flush_multi_pass.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/scoped_lock.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/parametric.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/closure.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/closure_context.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/closure_fwd.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/tuples.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/closures.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/actor.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/primitives.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/casts.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/composite.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/operators.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/tuple_helpers.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/json_parser_write.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_request_parser.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/logic/tribool.hpp \
+ /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/logic/tribool_fwd.hpp
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/asio/impl/src.hpp:
 
@@ -1742,6 +1993,508 @@ src/SmartNode.d: ../src/SmartNode.cpp \
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/TorrentInfo.hpp:
 
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/lexical_cast.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/lcast_precision.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/cast.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/converter.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/conversion_traits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/conversion_traits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/meta.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/int_float_mixture.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/int_float_mixture_enum.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/sign_mixture.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/sign_mixture_enum.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/is_subranged.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/multiplies.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/times.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/aux_/preprocessed/gcc/times.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/converter_policies.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/converter.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/bounds.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/bounds.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/numeric_cast_traits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/has_left_shift.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/detail/has_binary_operator.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/has_right_shift.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/sign.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/config.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/user.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/fenv.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/math_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/detail/round_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/promotion.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/is_floating_point.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/policies/policy.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/limits/list.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/list20.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/list10.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/list0.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/push_front.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/item.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/tag.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/pop_front.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/push_back.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/front.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/clear.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/O1_size.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/size.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/empty.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/begin_end.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/iterator.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/include_preprocessed.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/preprocessed/plain/list10.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/list/aux_/preprocessed/plain/list20.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/aux_/preprocessed/gcc/list.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/mpl/remove_if.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/config/no_tr1/complex.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/detail/fp_traits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/endian.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/detail/endian_compat.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/other/endian.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/version_number.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/make.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/detail/test.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/library/c/gnu.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/library/c/_prefix.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/detail/_cassert.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/macos.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/bsdi.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/dragonfly.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/free.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/open.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/predef/os/bsd/net.h:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/special_functions/fpclassify.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/math/tools/real_cast.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/container/container_fwd.hpp:
+
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/database.hpp:
 
 /home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/database.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_connection.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_reply.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_header.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_request.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_request_handler.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/ptree.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/ptree_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/string_path.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/id_translator.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/exceptions.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/any.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/decay.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/remove_bounds.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/exception_implementation.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/ptree_utils.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/stream_translator.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/optional/optional_io.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/utility/value_init.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/sequenced_index.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/detail/seq_index_node.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/detail/seq_index_ops.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/multi_index/sequenced_index_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/ptree_implementation.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/json_parser.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/json_parser_read.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/json_parser_error.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/file_parser_error.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/include/classic.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/version.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/debug.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/debug/minimal.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/config.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/nil.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/namespace.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/match.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/assert.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/safe_bool.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/impl/match_attr_traits.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/impl/match.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/parser.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/scanner.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/parser_id.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/scanner_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/impl/parser.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/primitives.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/directives.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/skipper.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/impl/primitives.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/skipper_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/scanner/impl/skipper.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/numerics.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/directives.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/composite.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/compressed_pair.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/detail/compressed_pair.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/type_traits/is_empty.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/numerics_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/primitives/impl/numerics.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/subrule.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/parser_context.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/subrule_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/subrule.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/rule.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/rule.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/grammar.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/grammar.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/non_terminal/impl/object_with_id.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/actions.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/epsilon.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/parser_traits.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/parser_traits.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/operators.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/sequence.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/as_parser.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/sequence.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/sequential_and.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/sequential_and.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/sequential_or.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/sequential_or.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/alternative.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/alternative.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/difference.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/difference.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/intersection.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/intersection.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/exclusive_or.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/exclusive_or.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/kleene_star.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/kleene_star.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/positive.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/positive.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/optional.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/optional.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/list.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/impl/list.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/core/composite/no_actions.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/assign_actor.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/ref_value_actor.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/ref_const_ref_actor.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/actor/push_back_actor.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/fundamental.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/fundamental.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/traverse.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/traverse.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling/exceptions.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling/exceptions_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/error_handling/impl/exceptions.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/file_iterator.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/iterator_adaptors.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/file_iterator_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/impl/file_iterator.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/fixed_size_queue.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/position_iterator.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/position_iterator_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/impl/position_iterator.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/multi_pass.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/iterator/multi_pass_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/symbols.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/symbols_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/impl/symbols.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/symbols/impl/tst.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/chset.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/basic_chset.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/range_run.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/range_run.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset/basic_chset.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/chset_operators.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/chset_operators.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/escape_char.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/escape_char_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/escape_char.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/functor_parser.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/loops.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/confix.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/confix_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/confix.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/refactoring.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/meta/impl/refactoring.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/lists.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/lists_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/impl/lists.ipp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/distinct.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/distinct_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/flush_multi_pass.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/utility/scoped_lock.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/parametric.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/closure.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/closure_context.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/attribute/closure_fwd.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/tuples.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/closures.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/actor.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/primitives.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/casts.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/composite.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/operators.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/spirit/home/classic/phoenix/tuple_helpers.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/property_tree/detail/json_parser_write.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/at_server_request_parser.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/logic/tribool.hpp:
+
+/home/nogueira/workspace/AcademicTorrents-SmartNodeV1/include/boost/logic/tribool_fwd.hpp:

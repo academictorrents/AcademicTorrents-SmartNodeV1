@@ -23,79 +23,99 @@
 #include "async_at_connection.hpp"
 #include "CSVReader.hpp"
 #include "database.hpp"
+#include "at_server.hpp"
 
 #define DEBUG
 
 #ifdef DEBUG
 
+void createServer(){
+	  try
+	  {
+
+	    // Initialise the server.
+	    std::size_t num_threads = boost::lexical_cast<std::size_t>(2);
+	    http::at_server::server s("127.0.0.1", "3000", "./public_html", num_threads);
+
+	    // Run the server until stopped.
+	    s.run();
+	  }
+	  catch (std::exception& e)
+	  {
+	    std::cerr << "exception: " << e.what() << "\n";
+	  }
+}
 
 
 bool yes(libtorrent::torrent_status const&)
 { return true; }
 
 
-//int main(int argc, char **argv) {
-//	using namespace libtorrent;
-////
-//	Database *db = new Database(DATABASE_NAME);
-//	vector<vector<string> > results = db->query("SELECT torrentpath from Torrents WHERE torrentpath!=\"\";");
+int main(int argc, char **argv) {
+	using namespace libtorrent;
 //
-//	session s;
-//	error_code ec;
-//	s.listen_on(std::make_pair(6800, 6800));
-////	if (ec) {
-////		fprintf(stderr, "failed to open listen socket: %s\n",
-////				ec.message().c_str());
-////		return 1;
-////	}
-//
-//
-//	for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
-//	  vector<string> vec = *it_outer;
-//	  for(std::vector<string>::iterator it_inner = vec.begin(); it_inner != vec.end(); ++it_inner){
-//	    /*download the file*/
-//	    std::cout << *it_inner << std::endl;
-//	    add_torrent_params p;
-//	    p.save_path = "./collections/";
-//	    std::cout << "saved path" << std::endl;
-//	    p.ti = new torrent_info(*it_inner);
-//	    p.auto_managed = true;
-//	    std::cout << "added torrent info" << std::endl;
-//	    if (ec) {
-//	      fprintf(stderr, "%s\n", ec.message().c_str());
-//	      return 1;
-//	    }
-//	    s.add_torrent(p);
-//	    //s.pause();
-//	    std::cout << "added torrent to session" << std::endl;
-//	  }
+
+	thread serverTheard(&createServer);
+
+	Database *db = new Database(DATABASE_NAME);
+	vector<vector<string> > results = db->query("SELECT torrentpath from Torrents WHERE torrentpath!=\"\";");
+
+	session s;
+	error_code ec;
+	s.listen_on(std::make_pair(6800, 6800));
+//	if (ec) {
+//		fprintf(stderr, "failed to open listen socket: %s\n",
+//				ec.message().c_str());
+//		return 1;
 //	}
-//
-//	std::vector<torrent_status> ret;
-//
-//	s.get_torrent_status(&ret, &yes, 0);
-//
-//	if(ret.empty()){
-//		std::cout << "is empty" << std::endl;
-//	}else {
-//		std::cout << "not empty" << std::endl;
-//	}
-//
-//
-//
-//	//std::cout << "got here" << std::endl;
-//	//s.resume();
-//	while (ret[0].progress < 0.999) {
-//		std::cout << "not done" << std::endl;
-//		s.refresh_torrent_status(&ret);
-//		std::cout << ret[0].progress * 100 << std::endl;
-//	}
-//
-//	if(ret[0].finished){
-//		std::cout << "done" << std::endl;
-//	}
-//	return 0;
-//}
+
+
+	for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
+	  vector<string> vec = *it_outer;
+	  for(std::vector<string>::iterator it_inner = vec.begin(); it_inner != vec.end(); ++it_inner){
+	    /*download the file*/
+	    std::cout << *it_inner << std::endl;
+	    add_torrent_params p;
+	    p.save_path = "./collections/";
+	    std::cout << "saved path" << std::endl;
+	    p.ti = new torrent_info(*it_inner);
+	    p.auto_managed = true;
+	    std::cout << "added torrent info" << std::endl;
+	    if (ec) {
+	      fprintf(stderr, "%s\n", ec.message().c_str());
+	      return 1;
+	    }
+	    s.add_torrent(p);
+	    //s.pause();
+	    std::cout << "added torrent to session" << std::endl;
+	  }
+	}
+
+	std::vector<torrent_status> ret;
+
+	s.get_torrent_status(&ret, &yes, 0);
+
+	if(ret.empty()){
+		std::cout << "is empty" << std::endl;
+	}else {
+		std::cout << "not empty" << std::endl;
+	}
+
+
+
+	//std::cout << "got here" << std::endl;
+	//s.resume();
+	while (ret[0].progress < 0.999) {
+		std::cout << "not done" << std::endl;
+		s.refresh_torrent_status(&ret);
+		std::cout << ret[0].progress * 100 << std::endl;
+	}
+
+	if(ret[0].finished){
+		std::cout << "done" << std::endl;
+	}
+	return 0;
+}
 
 #endif
 

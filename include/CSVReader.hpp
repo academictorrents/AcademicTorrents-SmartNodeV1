@@ -15,6 +15,7 @@
 #include "boost/algorithm/string/classification.hpp"
 #include <boost/asio.hpp>
 #include "TorrentInfo.hpp"
+#include <boost/lexical_cast.hpp>
 #include "database.hpp"
 
 using namespace std;
