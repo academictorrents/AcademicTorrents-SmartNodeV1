@@ -24,6 +24,8 @@ class at_fetcher{
 		/* pass name of collection*/
 		void parse_collection_csv(const std::string collection);
 		/* param infohash */
+		void parse_collection_list(const std::string url);
+		//param infohash
 		void download_torrent_file(const std::string infohash);
 	private:
 		std::string get_collection_csv(const std::string collection);

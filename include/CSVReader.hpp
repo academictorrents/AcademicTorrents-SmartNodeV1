@@ -27,6 +27,7 @@ public:
 	string getfileContent();
 	char* getDataBaseName();
 	void readAll();
+	void readCollections();
 	~CSVReader();
 
 
