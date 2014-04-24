@@ -8,6 +8,11 @@
 
 #include <string>
 #include <boost/noncopyable.hpp>
+#include "database.hpp"
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
+
+using boost::property_tree::ptree;
 
 namespace http {
 namespace at_server {
@@ -33,6 +38,8 @@ private:
   /// Perform URL-decoding on a string. Returns false if the encoding was
   /// invalid.
   static bool url_decode(const std::string& in, std::string& out);
+
+  std::string createJson(std::vector<vector<string> >);
 };
 
 } // namespace at_server

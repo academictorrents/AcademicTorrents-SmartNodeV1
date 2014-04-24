@@ -53,6 +53,14 @@
 
 	}
 
+	static void write_collections_list(boost::asio::streambuf *stream){
+		std::ostringstream ss;
+		ss << stream;
+		std::string content = ss.str();
+		CSVReader reader(content, DATABASE_NAME);
+		reader.readCollections();
+	}
+
 	at_fetcher::at_fetcher(){
 
 	}
@@ -75,6 +83,12 @@
 
 	}
 
+	void at_fetcher::parse_collection_list(const std::string path){
+		boost::asio::io_service io_service;
+		async_at_client::async_at_connection c(io_service, AT_URL, path, write_collections_list);
+		io_service.run();
+	}
+
 	void at_fetcher::download_torrent_file(const std::string infohash){
 		cur_infohash = infohash;
 		boost::asio::io_service io_service;
@@ -95,7 +109,7 @@
 
 //	int main (){
 //		at_fetcher fetcher;
-//		fetcher.parse_collection_csv("umass-boston-cs-department");
+//		fetcher.parse_collection_list("/collections.php?format=.csv");
 ////		fetcher.download_torrent_file("cb1655a57dd24345c9ea7a43c5ec09e03c7a0979");
 //		return 0;
 //	}
