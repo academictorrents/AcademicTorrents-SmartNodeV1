@@ -1,10 +1,11 @@
 #include "database.hpp"
 #include <iostream>
 #include "sqlite3.h"
-Database::Database(char* filename)
+Database::Database()
 {
     database = NULL;
-    open(filename);
+    open(DATABASE_NAME);
+    query(DATABASE_TABLES);
 }
 
 Database::~Database()
