@@ -23,11 +23,28 @@
 #include "async_at_connection.hpp"
 #include "CSVReader.hpp"
 #include "database.hpp"
+#include "at_server.hpp"
 
 #define DEBUG
 
 #ifdef DEBUG
 
+void createServer(){
+	  try
+	  {
+
+	    // Initialise the server.
+	    std::size_t num_threads = boost::lexical_cast<std::size_t>(2);
+	    http::at_server::server s("at01.cs.umb.edu", "6801", "./public_html", num_threads);
+
+	    // Run the server until stopped.
+	    s.run();
+	  }
+	  catch (std::exception& e)
+	  {
+	    std::cerr << "exception: " << e.what() << "\n";
+	  }
+}
 
 
 bool yes(libtorrent::torrent_status const&)
@@ -37,10 +54,18 @@ bool yes(libtorrent::torrent_status const&)
 int main(int argc, char **argv) {
 	using namespace libtorrent;
 //
+
+	thread serverThread(&createServer);
+
 	Database *db = new Database(DATABASE_NAME);
 	vector<vector<string> > results = db->query("SELECT torrentpath from Torrents WHERE torrentpath!=\"\";");
 
 	session s;
+
+	session_settings settings = s.settings();
+	settings.version = 1;
+	settings.user_agent = "SmartNode";
+
 	error_code ec;
 	s.listen_on(std::make_pair(6800, 6800));
 //	if (ec) {
@@ -49,7 +74,7 @@ int main(int argc, char **argv) {
 //		return 1;
 //	}
 
-	
+
 	for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
 	  vector<string> vec = *it_outer;
 	  for(std::vector<string>::iterator it_inner = vec.begin(); it_inner != vec.end(); ++it_inner){
@@ -94,9 +119,12 @@ int main(int argc, char **argv) {
 	if(ret[0].finished){
 		std::cout << "done" << std::endl;
 	}
+
+	//wait for thread to finish
+	serverThread.join();
 	return 0;
 }
-
+  
 #endif
 
 //#ifndef DEBUG
