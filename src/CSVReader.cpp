@@ -29,9 +29,9 @@ void CSVReader::readAll() {
 //
 	stringstream mydata;
 	mydata<<fileContent;
-	Database *db;
-	db = new Database(dataBaseName);
+	Database *db = new Database();
 
+	db->open(dataBaseName);
     db->query(TORRENTS_TABLE);
 
 		int i = 0;
@@ -68,8 +68,8 @@ void CSVReader::readCollections(){
 	//
 		stringstream mydata;
 		mydata<<fileContent;
-		Database *db;
-		db = new Database(dataBaseName);
+		Database *db = new Database();
+		db->open(dataBaseName);
 
 	    db->query(TORRENTS_TABLE);
 
@@ -87,7 +87,7 @@ void CSVReader::readCollections(){
 						else
 						q+=fields[j];
 
-					q+=");";
+					q+=",0);";
 					//q.replace(q.length()-1,2,");");
 					db->query(&q[0]);
 				}

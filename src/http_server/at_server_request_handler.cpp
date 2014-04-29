@@ -7,6 +7,7 @@
 #include <sstream>
 #include <string>
 #include <boost/lexical_cast.hpp>
+#include <boost/algorithm/string.hpp>
 #include "at_server_mime_types.hpp"
 #include "at_server_reply.hpp"
 #include "at_server_request.hpp"
@@ -37,7 +38,9 @@ void request_handler::handle_request(const request& req, reply& rep)
     return;
   }
 
-  std::cout << request_path;
+  vector<string> parts;
+  boost::split(parts, request_path, boost::is_any_of("/"));
+  int path_size = parts.size();
 
   // If path ends in slash (i.e. is a directory) then add "index.html".
   if (request_path[request_path.size() - 1] == '/')
@@ -45,7 +48,12 @@ void request_handler::handle_request(const request& req, reply& rep)
 
     request_path += "index.html";
   }
-  if(request_path == "/collections"){
+
+  switch (path_size){
+
+
+  case 2:
+	  if(parts[path_size - 1] == "collections"){
 	  boost::property_tree::ptree pt;
 	  boost::property_tree::ptree children;
 	  boost::property_tree::ptree child;
@@ -55,13 +63,16 @@ void request_handler::handle_request(const request& req, reply& rep)
 		col.push_back("urlname");
 		col.push_back("torrent_count");
 		col.push_back("size");
+		col.push_back("mirrored");
 
-	  Database *db = new Database(DATABASE_NAME);
+	  Database *db;
+	  db->open(DATABASE_NAME);
 	  vector<vector<string> > results = db->query("Select * from Collections;");
+	  db->close();
 
 	  for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
 		  vector<string> vec = *it_outer;
-		  for(int i = 0; i < 4; i++){
+		  for(int i = 0; i < 5; i++){
 			  child.put(col[i], vec[i]);
 		  }
 		  children.push_back(std::make_pair("", child));
@@ -72,16 +83,36 @@ void request_handler::handle_request(const request& req, reply& rep)
 	  boost::property_tree::json_parser::write_json(json, pt);
 
 	  rep.status = reply::ok;
-//	  rep.content.append(createJson(results));
 	  rep.content.append(json.str());
 	  	  rep.headers.resize(2);
 	    rep.headers[0].name = "Content-Length";
 	    rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
 	    rep.headers[1].name = "Content-Type";
 	    rep.headers[1].value = mime_types::extension_to_type("json");
+
 	    return;
+  }
+	  break;
+  case 3:
+	  if(parts[path_size - 2] == "collections"){
+		  std::string collection_id = parts[path_size -1];
 
+		  Database *db = new Database();
 
+		  rep.status = reply::ok;
+		  rep.content.append(collection_id);
+		  rep.headers.resize(2);
+		  rep.headers[0].name = "Content-Length";
+		  rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
+		  rep.headers[1].name = "Content-Type";
+		  rep.headers[1].value = mime_types::extension_to_type("json");
+
+		  return;
+	  }
+	  break;
+
+  default:
+	  break;
   }
 
 
@@ -114,28 +145,6 @@ void request_handler::handle_request(const request& req, reply& rep)
   rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
   rep.headers[1].name = "Content-Type";
   rep.headers[1].value = mime_types::extension_to_type(extension);
-}
-
-std::string request_handler::createJson(std::vector<vector<string> > results){
-	int i = 0;
-	std::vector<string> col;
-	col.push_back("name");
-	col.push_back("urlname");
-	col.push_back("torrent_count");
-	col.push_back("size");
-	string s = "{ \"Collections\": [";
-	for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
-					i = 0;
-			  	  	s.append("{ ");
-		  			vector<string> vec = *it_outer;
-		  			for(std::vector<string>::iterator it_inner = vec.begin(); it_inner != vec.end(); ++it_inner){
-		  				s.append("\"" + col[0] + "\"" + ": " + "\"" + *it_inner + "\"}");
-		  				i++;
-		  			}
-		  			s.append("}");
-		  		}
-	s.append("] }");
-	return s;
 }
 
 bool request_handler::url_decode(const std::string& in, std::string& out)

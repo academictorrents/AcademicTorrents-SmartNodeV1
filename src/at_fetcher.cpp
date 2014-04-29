@@ -18,8 +18,10 @@
 
 		/* find Torrent that have yet to be downloaded*/
 
-		Database *db = new Database(DATABASE_NAME);
+		Database *db = new Database();
+		db->open(DATABASE_NAME);
 		vector<vector<string> > results = db->query("SELECT infohash from Torrents WHERE torrentpath=\"\";");
+		db->close();
 
 		for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
 			vector<string> vec = *it_outer;
@@ -47,7 +49,8 @@
 
 		//TODO currently only check if the database has not path. Also check for the file in the directory in case of deletion.
 		/*Update database with new file path.*/
-		Database *db = new Database(DATABASE_NAME);
+		Database *db = new Database();
+		db->open(DATABASE_NAME);
 		update_query = "UPDATE Torrents SET torrentpath=\"" + filepath + "\" WHERE infohash=\""+ cur_infohash + "\";";
 		db->query(update_query.c_str());
 		db->close();
@@ -107,12 +110,3 @@
 		/* ex. /download/cb1655a57dd24345c9ea7a43c5ec09e03c7a0979.torrent */
 		return "/download/" + infohash + ".torrent";
 	}
-
-	//TODO REMOVE TEST CODE
-//	int main (){
-//		at_fetcher fetcher;
-//		fetcher.parse_collection_list("/collections.php?format=.csv");
-////		fetcher.download_torrent_file("cb1655a57dd24345c9ea7a43c5ec09e03c7a0979");
-//		return 0;
-//	}
-
