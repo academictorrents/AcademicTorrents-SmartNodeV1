@@ -1,22 +1,18 @@
 /*
  /*
- * CSVReader.hpp
+ * CSVReader.h
  *
  *  Created on: Feb 18, 2014
  *      Author: grigorii
  */
 
-#include <iostream>
-#include <vector>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include "boost/algorithm/string/split.hpp"
+ #include <iostream>
+ #include <vector>
+ #include <fstream>
+ #include <string>
+ #include <sstream>
+ #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
-#include <boost/asio.hpp>
-//#include "TorrentInfo.h"
-#include "database.h"
-
 using namespace std;
 #ifndef CSVREADER_H_
 #define CSVREADER_H_
@@ -31,7 +27,7 @@ public:
 
 
 private:
-	string fileContent;
+    string fileContent;
 //    char* dataBaseName;
 
 };

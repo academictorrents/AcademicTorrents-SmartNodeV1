@@ -6,7 +6,8 @@
  */
 
 #include "CSVReader.h"
-
+#include "TorrentInfo.h"
+#include "database.h"
 
 CSVReader::CSVReader(string fileContent) {
 	CSVReader::fileContent = fileContent;
@@ -25,32 +26,30 @@ void CSVReader::readAll() {
 	string line;
 
 	vector<string> fields;
-//
+
 	stringstream mydata;
 	mydata<<fileContent;
-	Database *db;
-	db = new Database();
-
- //   db->query(TORRENTS_TABLE);
+	database *db;
+	db = new database();
 
 		int i = 0;
 
 		while (getline(mydata, line)) {
 			if (i != 0) {
 				boost::split(fields, line, boost::is_any_of(","));
-				//TODO REMOVE TEST CODE
-				/* TorrentInfo tor(fields); */
-				/* adding a torrent info to the data base */
-				string q="INSERT OR IGNORE INTO Torrents VALUES(";
-				for (size_t j=0;j<fields.size();j++)
-					if (j<3 || j>6)
+
+				//TorrentInfo tor(fields);
+				//adding a torrent info to the data base
+				string q="INSERT OR REPLACE INTO Torrents VALUES(";
+				for (size_t j=0;j<fields.size()-1;j++)
+					if (j<3 || j>6 )
 					q+="'"+fields[j]+"'"+",";
 					else
 					q+=fields[j]+",";
 
-				q+="'');";
-				//TODO REMOVE TEST CODE
-				/* q.replace(q.length()-1,2,");"); */
+				//q+=")";
+				q+=fields[fields.size()-1]+");";
+				//q.replace(q.length()-1,2,");");
 				db->query(&q[0]);
 			}
 			i++;
@@ -60,3 +59,4 @@ void CSVReader::readAll() {
 
 }
 CSVReader::~CSVReader() {}
+
