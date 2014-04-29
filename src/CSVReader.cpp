@@ -5,21 +5,21 @@
  *      Author: grigorii
  */
 
-#include "CSVReader.hpp"
+#include "CSVReader.h"
 
 
-CSVReader::CSVReader(string fileContent,char* dataBaseName) {
+CSVReader::CSVReader(string fileContent) {
 	CSVReader::fileContent = fileContent;
-	CSVReader::dataBaseName = dataBaseName;
+//	CSVReader::dataBaseName = dataBaseName;
 
 }
 string CSVReader::getfileContent() {
 	return CSVReader::fileContent;
 }
 
-char* CSVReader::getDataBaseName(){
-	return CSVReader::dataBaseName;
-}
+//char* CSVReader::getDataBaseName(){
+//	return CSVReader::dataBaseName;
+//}
 
 void CSVReader::readAll() {
 	string line;
@@ -29,9 +29,9 @@ void CSVReader::readAll() {
 	stringstream mydata;
 	mydata<<fileContent;
 	Database *db;
-	db = new Database(dataBaseName);
+	db = new Database();
 
-    db->query(TORRENTS_TABLE);
+ //   db->query(TORRENTS_TABLE);
 
 		int i = 0;
 
@@ -60,4 +60,3 @@ void CSVReader::readAll() {
 
 }
 CSVReader::~CSVReader() {}
-

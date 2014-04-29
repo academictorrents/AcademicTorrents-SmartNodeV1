@@ -14,8 +14,8 @@
 #include "boost/algorithm/string/split.hpp"
 #include "boost/algorithm/string/classification.hpp"
 #include <boost/asio.hpp>
-#include "TorrentInfo.hpp"
-#include "database.hpp"
+//#include "TorrentInfo.h"
+#include "database.h"
 
 using namespace std;
 #ifndef CSVREADER_H_
@@ -23,16 +23,16 @@ using namespace std;
 
 class CSVReader {
 public:
-	CSVReader(string,char*);
+	CSVReader(string);
 	string getfileContent();
-	char* getDataBaseName();
+//	char* getDataBaseName();
 	void readAll();
 	~CSVReader();
 
 
 private:
 	string fileContent;
-    char* dataBaseName;
+//    char* dataBaseName;
 
 };
 
