@@ -40,7 +40,8 @@ void CSVReader::readAll() {
 
 				//TorrentInfo tor(fields);
 				//adding a torrent info to the data base
-				string q="INSERT OR REPLACE INTO Torrents VALUES(";
+				//(type, name,infohash,sizebytes,mirrors,downloaders,timescompleted,dateadded,datemodified);
+				string q="INSERT OR REPLACE INTO Torrents (type, name,infohash,sizebytes,mirrors,downloaders,timescompleted,dateadded,datemodified) VALUES (";
 				for (size_t j=0;j<fields.size()-1;j++)
 					if (j<3 || j>6 )
 					q+="'"+fields[j]+"'"+",";

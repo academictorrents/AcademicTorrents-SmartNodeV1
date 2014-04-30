@@ -7,7 +7,7 @@
 //#define TORRENTS_TABLE "create table if not exists Torrents (type TEXT, name TEXT,infohash TEXT  PRIMARY KEY,sizebytes BIGINT,mirrors INTEGER,downloaders INTEGER,timescompleted INTEGER,dateadded TEXT,datemodified TEXT, torrentpath TEXT DEFAULT 'NULL');"
 
 #define TORRENTS_TABLE "create table if not exists Torrents (type TEXT, name TEXT,infohash TEXT  PRIMARY KEY,sizebytes BIGINT,mirrors INTEGER,downloaders INTEGER,timescompleted INTEGER,\
-dateadded TEXT,datemodified TEXT, torrentpath TEXT DEFAULT 'NULL', bibtex TEXT,status INTEGER DEFAULT 0);"
+dateadded TEXT,datemodified TEXT, torrentpath TEXT DEFAULT 'NULL', bibtex TEXT DEFAULT 'NULL',status INTEGER DEFAULT 0);"
 
 #define COLLECTIONS_TABLE "create table if not exists Collections (name TEXT, urlname TEXT PRIMARY KEY, torrentcount INTEGER, totalsizebytes BIGINT);"
 
