@@ -24,7 +24,7 @@
 // });
 
 
-$.getJSON('127.0.0.1:6801/collections', function(data){
+$.getJSON('http://at01.cs.umb.edu:6801/collections', function(data){
 	console.log(data);
 }).done(function( data ) {
 	var table_obj = $('table');
