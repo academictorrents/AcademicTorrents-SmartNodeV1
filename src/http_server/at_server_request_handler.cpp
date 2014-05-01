@@ -58,16 +58,17 @@ void request_handler::handle_request(const request& req, reply& rep)
 	  boost::property_tree::ptree children;
 	  boost::property_tree::ptree child;
 
-	  std::vector<string> col;
-		col.push_back("name");
-		col.push_back("urlname");
-		col.push_back("torrent_count");
-		col.push_back("size");
-		col.push_back("mirrored");
+//	  std::vector<string> col;
+//		col.push_back("name");
+//		col.push_back("urlname");
+//		col.push_back("torrent_count");
+//		col.push_back("size");
+//		col.push_back("mirrored");
 
-	  Database *db;
+	  Database *db = new Database();
 	  db->open(DATABASE_NAME);
 	  vector<vector<string> > results = db->query("Select * from Collections;");
+	  std::vector<string> col = db->getColNames();
 	  db->close();
 
 	  for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
@@ -97,10 +98,30 @@ void request_handler::handle_request(const request& req, reply& rep)
 	  if(parts[path_size - 2] == "collections"){
 		  std::string collection_id = parts[path_size -1];
 
+		  boost::property_tree::ptree pt;
+		  boost::property_tree::ptree children;
+		  boost::property_tree::ptree child;
+
 		  Database *db = new Database();
+		  db->open(DATABASE_NAME);
+		  vector<vector<string> > results =
+				  db->query("SELECT T.type, T.name, T.infohash, T.sizebytes, T.mirrors, T.downloaders, T.timescompleted, T.dateadded, T.datemodified, T.bibtex FROM torrents T JOIN Collections2Torrents C ON T.infohash=C.infohash WHERE C.urlname=\"" + collection_id + "\";");
+		  std::vector<string> col = db->getColNames();
+		  db->close();
+		  for(int i = 0; i < results.size(); i++){
+			  vector<string> inner = results[i];
+			  for(int j = 0; j < col.size(); j++){
+				  child.put(col[j], inner[j]);
+			  }
+			  children.push_back(std::make_pair("", child));
+		  }
+
+		  pt.add_child("Torrents", children);
+		  std::stringstream json;
+		  boost::property_tree::json_parser::write_json(json, pt);
 
 		  rep.status = reply::ok;
-		  rep.content.append(collection_id);
+		  rep.content.append(json.str());
 		  rep.headers.resize(2);
 		  rep.headers[0].name = "Content-Length";
 		  rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());

@@ -35,11 +35,12 @@ namespace async_at_client
 
 		string server;
 		string path;
+		string collection;
 
-		void (*callback_func)(boost::asio::streambuf *);
+		void (*callback_func)(boost::asio::streambuf *,string);
 
 		public:
-			async_at_connection(boost::asio::io_service&, const std::string&,const std::string&, void (*callback)(boost::asio::streambuf *));
+			async_at_connection(boost::asio::io_service&, const std::string&,const std::string&, void (*callback)(boost::asio::streambuf *, string), string);
 			int connect();
 			string getCSV();
 

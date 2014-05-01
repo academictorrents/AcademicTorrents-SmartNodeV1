@@ -11,7 +11,8 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "boost/algorithm/string/split.hpp"
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string/replace.hpp>
 #include "boost/algorithm/string/classification.hpp"
 #include <boost/asio.hpp>
 #include "TorrentInfo.hpp"
@@ -27,7 +28,7 @@ public:
 	CSVReader(string,char*);
 	string getfileContent();
 	char* getDataBaseName();
-	void readAll();
+	void readAll(string);
 	void readCollections();
 	~CSVReader();
 

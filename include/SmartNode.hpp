@@ -55,7 +55,6 @@ public:
 	void init();
 	void loadSettings();
 	void saveSettings();
-	void updateCollectionsList();
 	void shutdown();
 };
 
