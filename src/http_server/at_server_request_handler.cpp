@@ -105,7 +105,7 @@ void request_handler::handle_request(const request& req, reply& rep)
 		  Database *db = new Database();
 		  db->open(DATABASE_NAME);
 		  vector<vector<string> > results =
-				  db->query("SELECT T.type, T.name, T.infohash, T.sizebytes, T.mirrors, T.downloaders, T.timescompleted, T.dateadded, T.datemodified, T.bibtex FROM torrents T JOIN Collections2Torrents C ON T.infohash=C.infohash WHERE C.urlname=\"" + collection_id + "\";");
+				  db->query("SELECT DISTINCT T.type, T.name, T.infohash, T.sizebytes, T.mirrors, T.downloaders, T.timescompleted, T.dateadded, T.datemodified, T.bibtex FROM torrents T JOIN Collections2Torrents C ON T.infohash=C.infohash WHERE C.urlname=\"" + collection_id + "\";");
 		  std::vector<string> col = db->getColNames();
 		  db->close();
 		  for(int i = 0; i < results.size(); i++){
