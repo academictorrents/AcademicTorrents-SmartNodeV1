@@ -10,7 +10,7 @@
 using namespace async_at_client;
 
 	  async_at_connection::async_at_connection(boost::asio::io_service& io_service,
-		  const std::string& server, const std::string& path, void(*callback)(boost::asio::streambuf *))
+		  const std::string& server, const std::string& path, void(*callback)(boost::asio::streambuf *, string s), string col)
 		: resolver_(io_service),
 		  socket_(io_service)
 	  {
@@ -20,6 +20,7 @@ using namespace async_at_client;
 		  * allow us to treat all data up until the EOF as the content.
 		  * */
 		callback_func = callback;
+		collection = col;
 		std::ostream request_stream(&request_);
 				request_stream << "GET " << path << " HTTP/1.0\r\n";
 				request_stream << "Host: " << server << "\r\n";
@@ -167,7 +168,7 @@ using namespace async_at_client;
 		else if(err == boost::asio::error::eof)
 		{
 			  // make call to callback at eof
-				callback_func(&response_);
+				callback_func(&response_, collection);
 		}
 	  }
 

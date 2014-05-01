@@ -1,0 +1,11 @@
+.checkbox{
+	display: block;
+	min-height: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 0px;
+}
+
+.checkbox input[type="checkbox"]{
+	margin-left: -6px;
+}

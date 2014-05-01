@@ -9,30 +9,32 @@
 	/*saves the infohash for when the callback is made.*/
 	static string cur_infohash;
 
-	static void insert_csv_info(boost::asio::streambuf *stream){
+	static void insert_collection_csv_info(boost::asio::streambuf *stream, string collection){
 		std::ostringstream ss;
 		ss << stream;
 		std::string content = ss.str();
 		CSVReader reader(content, DATABASE_NAME);
-		reader.readAll();
+		reader.readAll(collection);
 
-		/* find Torrent that have yet to be downloaded*/
-
-		Database *db = new Database(DATABASE_NAME);
-		vector<vector<string> > results = db->query("SELECT infohash from Torrents WHERE torrentpath=\"\";");
-
-		for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
-			vector<string> vec = *it_outer;
-			for(std::vector<string>::iterator it_inner = vec.begin(); it_inner != vec.end(); ++it_inner){
-				/*download the torrent file*/
-				at_fetcher at_fetcher;
-				at_fetcher.download_torrent_file(*it_inner);
-			}
-		} 
+//		/* find Torrent that have yet to be downloaded*/
+//
+//		Database *db = new Database();
+//		db->open(DATABASE_NAME);
+//		vector<vector<string> > results = db->query("SELECT infohash from Torrents WHERE torrentpath=\"\";");
+//		db->close();
+//
+//		for(std::vector<vector<string> >::iterator it_outer = results.begin(); it_outer != results.end(); ++it_outer){
+//			vector<string> vec = *it_outer;
+//			for(std::vector<string>::iterator it_inner = vec.begin(); it_inner != vec.end(); ++it_inner){
+//				/*download the torrent file*/
+//				at_fetcher at_fetcher;
+//				at_fetcher.download_torrent_file(*it_inner);
+//			}
+//		}
 
 	}
 
-	static void write_torrent_file(boost::asio::streambuf *stream){
+	static void write_torrent_file(boost::asio::streambuf *stream, string){
 		string filepath = "./collections/" + cur_infohash + ".torrent";
 		std::string update_query;
 		std::ostringstream ss;
@@ -47,11 +49,20 @@
 
 		//TODO currently only check if the database has not path. Also check for the file in the directory in case of deletion.
 		/*Update database with new file path.*/
-		Database *db = new Database(DATABASE_NAME);
+		Database *db = new Database();
+		db->open(DATABASE_NAME);
 		update_query = "UPDATE Torrents SET torrentpath=\"" + filepath + "\" WHERE infohash=\""+ cur_infohash + "\";";
 		db->query(update_query.c_str());
 		db->close();
 
+	}
+
+	static void write_collections_list(boost::asio::streambuf *stream, string s){
+		std::ostringstream ss;
+		ss << stream;
+		std::string content = ss.str();
+		CSVReader reader(content, DATABASE_NAME);
+		reader.readCollections();
 	}
 
 	at_fetcher::at_fetcher(){
@@ -65,7 +76,7 @@
 
 	void at_fetcher::parse_collection_csv(const std::string collection){
 		boost::asio::io_service io_service;
-		async_at_client::async_at_connection c(io_service, AT_URL, at_fetcher::create_csv_url(collection), insert_csv_info);
+		async_at_client::async_at_connection c(io_service, AT_URL, at_fetcher::create_csv_url(collection), insert_collection_csv_info, collection);
 		io_service.run();
 	}
 
@@ -76,10 +87,16 @@
 
 	}
 
+	void at_fetcher::parse_collection_list(const std::string path){
+		boost::asio::io_service io_service;
+		async_at_client::async_at_connection c(io_service, AT_URL, path, write_collections_list, "");
+		io_service.run();
+	}
+
 	void at_fetcher::download_torrent_file(const std::string infohash){
 		cur_infohash = infohash;
 		boost::asio::io_service io_service;
-		async_at_client::async_at_connection c(io_service, AT_URL, at_fetcher::create_dot_torrent_url(cur_infohash), write_torrent_file);
+		async_at_client::async_at_connection c(io_service, AT_URL, at_fetcher::create_dot_torrent_url(cur_infohash), write_torrent_file, "");
 		io_service.run();
 	}
 
@@ -93,12 +110,3 @@
 		/* ex. /download/cb1655a57dd24345c9ea7a43c5ec09e03c7a0979.torrent */
 		return "/download/" + infohash + ".torrent";
 	}
-
-	//TODO REMOVE TEST CODE
-//	int main (){
-//		at_fetcher fetcher;
-//		fetcher.parse_collection_csv("umass-boston-cs-department");
-////		fetcher.download_torrent_file("cb1655a57dd24345c9ea7a43c5ec09e03c7a0979");
-//		return 0;
-//	}
-
