@@ -85,8 +85,6 @@ vector<string> Database::getColNames(){
 
 void Database::close()
 {
-
-
     sqlite3_close(database);
 }
 

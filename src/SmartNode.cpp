@@ -77,7 +77,7 @@ void smartnode::saveSettings(){
 	output.close();
 }
 
-void smartnode::initDatabase(){
+void smartnode::initDatabase(string database_location){
 
 	/*
 	 * If the database file doesn't exist a new is created.
@@ -86,25 +86,30 @@ void smartnode::initDatabase(){
 	Database *db = new Database();
 
 	//look for a database
-	if(!boost::filesystem::exists(settings.database_dir.append(DATABASE_NAME))){
+	if(!boost::filesystem::exists(database_location.append(DATABASE_NAME))){
+		cout << "Creating Database";
 		db->open(DATABASE_NAME);
 
 		//create tables
 		db->query(TORRENTS_TABLE);
 		db->query(COLLECTIONS_TABLE);
 		db->query(COLLECTION2TORRENTS_TABLE);
-
-		//done with the database connection
 		db->close();
+		db->updateTableInfo();
+		cout << "Database Created!";
+		//done with the database connection
+	} else {
+		//update collections in database on startup
+		db->updateTableInfo();
 	}
-	//update collections in database on startup
-	db->updateTableInfo();
 }
 
 //smart node start up
 void smartnode::init(){
-	smartnode::initDatabase();
 	smartnode::loadSettings();
+
+	//TODO make this thread a timed task solve database locking
+	updateDataThread = boost::thread(&initDatabase,settings.database_dir);
 
 	//start API on shutdown need to stop thread
 	apiThread = boost::thread(&createServer);

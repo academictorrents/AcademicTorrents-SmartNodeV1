@@ -45,9 +45,10 @@ private:
 	libtorrent::session s;
 
 	boost::thread apiThread;
+	boost::thread updateDataThread;
 
 	static void createServer();
-	void initDatabase();
+	static void initDatabase(string);
 
 
 public:
