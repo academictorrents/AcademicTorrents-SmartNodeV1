@@ -53,17 +53,10 @@ void request_handler::handle_request(const request& req, reply& rep)
 
 
   case 2:
-	  if(parts[path_size - 1] == "collections"){
+	  if(parts[path_size - 1] == "collections" || parts[path_size - 1] == "collections/" ){
 	  boost::property_tree::ptree pt;
 	  boost::property_tree::ptree children;
 	  boost::property_tree::ptree child;
-
-//	  std::vector<string> col;
-//		col.push_back("name");
-//		col.push_back("urlname");
-//		col.push_back("torrent_count");
-//		col.push_back("size");
-//		col.push_back("mirrored");
 
 	  Database *db = new Database();
 	  db->open(DATABASE_NAME);

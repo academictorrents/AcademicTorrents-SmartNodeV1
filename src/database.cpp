@@ -9,16 +9,15 @@ Database::~Database()
 {}
 
 bool Database::open(char* filename)
-{
-    //sqlite3_config(SQLITE_CONFIG_MULTITHREAD); 		
-    		
+{ 				
     if(sqlite3_open(filename, &database) == SQLITE_OK)
         return true;
     return false;
 }
 vector<vector<string> > Database::query(const std::string query)
 {
-
+            sqlite3_config(SQLITE_CONFIG_MULTITHREAD);
+	    sqlite3_enable_shared_cache(1);
 	    vector<vector<string> > results;
 	    if(sqlite3_prepare_v2(database, query.c_str(), -1, &statement, 0) == SQLITE_OK)
 	    {
@@ -26,9 +25,9 @@ vector<vector<string> > Database::query(const std::string query)
 	        int result = 0;
 
 //	        if(){
-				for(int i = 0; i < cols; i++){
-						columns.push_back(std::string(sqlite3_column_name(statement, i)));
-					}
+		for(int i = 0; i < cols; i++){
+		  columns.push_back(std::string(sqlite3_column_name(statement, i)));
+		}
 //	        }
 
 	        while(true)
@@ -58,13 +57,6 @@ vector<vector<string> > Database::query(const std::string query)
 	            }
 
 	        }
-
-//	    	for(int i = 0; i < cols; i++){
-//	    		columns[i] = sqlite3_column_name(statement, 1);
-//	    	}
-
-//	        cout << sqlite3_column_name(statement, 1);
-
 	        sqlite3_finalize(statement);
 	    }
 

@@ -66,7 +66,7 @@ void CSVReader::readAll(string collection_name) {
 				q+=fields[fields.size()-1]+");";
 				db->open(dataBaseName);
 				db->query(&q[0]);
-				db->query("INSERT OR REPLACE INTO Collections2Torrents VALUES(\"" + fields[2] +"\", \'"+ collection_name + "\');");
+				db->query("INSERT OR REPLACE INTO Collections2Torrents VALUES(\'" + fields[2] +"\', \'"+ collection_name + "\');");
 				db->close();
 			}
 			//update association to collection

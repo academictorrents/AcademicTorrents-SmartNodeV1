@@ -110,9 +110,9 @@ void smartnode::init(){
 
 	//start API on shutdown need to stop thread
 	apiThread = boost::thread(&createServer);
-	initDatabase(settings.database_dir);
+	//	initDatabase(settings.database_dir);
 	//TODO make this thread a timed task solve database locking
-	// updateDataThread = boost::thread(&initDatabase,settings.database_dir);
+	 updateDataThread = boost::thread(&initDatabase,settings.database_dir);
 }
 
 void smartnode::shutdown(){

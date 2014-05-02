@@ -24,7 +24,7 @@ $.getJSON('http://at01.cs.umb.edu:6801/collections', function(data){
 		var urlName = $(this).attr('id');
 		var COLLECTIONAPI = "http://at01.cs.umb.edu:6801/collections/" + urlName;
 		//console.log(COLLECTIONAPI);
-		$("#table1").empty();
+		
 		$.ajax({
 			type : 'GET',
 			url: COLLECTIONAPI,
@@ -32,6 +32,7 @@ $.getJSON('http://at01.cs.umb.edu:6801/collections', function(data){
 			success:function(data) {
 				console.log("success");
 				//console.log(data);
+				$("#tbody1").empty();
 				myFunction(urlName, data);
 			},
 			complete :function(data) {
@@ -104,7 +105,7 @@ return  bytes.toFixed(1) + ' '+sizes[posttxt];
 
 
 	function myFunction(collection_name, data){
-		var table_obj = $("#table1");
+		var table_obj = $('#table1');
 		console.log(data);
 	$.each( data[collection_name], function( name, sizebytes, type, mirrors ) {
 		var table_row = $('<tr>' );
@@ -116,7 +117,7 @@ return  bytes.toFixed(1) + ' '+sizes[posttxt];
 
 		//var checkbox = $('<input type="checkbox" value="'+ coll_id + '"></input>');
 		
-
+		$('#collection-name').text(collection_name);
 		//table_row.append(checkbox);
 		table_row.append(table_cell1);
 		table_row.append(table_cell2);
