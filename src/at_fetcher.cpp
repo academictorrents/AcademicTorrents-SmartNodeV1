@@ -50,8 +50,8 @@
 		//TODO currently only check if the database has not path. Also check for the file in the directory in case of deletion.
 		/*Update database with new file path.*/
 		Database *db = new Database();
-		db->open(DATABASE_NAME);
 		update_query = "UPDATE Torrents SET torrentpath=\"" + filepath + "\" WHERE infohash=\""+ cur_infohash + "\";";
+		db->open(DATABASE_NAME);
 		db->query(update_query.c_str());
 		db->close();
 
