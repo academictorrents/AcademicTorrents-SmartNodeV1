@@ -32,8 +32,6 @@ void CSVReader::readAll(string collection_name) {
 	mydata<<fileContent;
 	Database *db = new Database();
 
-	db->open(dataBaseName);
-
 		int i = 0;
 
 		while (getline(mydata, line)) {
@@ -66,14 +64,16 @@ void CSVReader::readAll(string collection_name) {
 					q+=fields[j]+",";
 
 				q+=fields[fields.size()-1]+");";
+				db->open(dataBaseName);
 				db->query(&q[0]);
 				db->query("INSERT OR REPLACE INTO Collections2Torrents VALUES(\"" + fields[2] +"\", \'"+ collection_name + "\');");
+				db->close();
 			}
 			//update association to collection
 			i++;
 		}
 
-        db->close();
+        // db->close();
 
 }
 
@@ -85,9 +85,7 @@ void CSVReader::readCollections(){
 		stringstream mydata;
 		mydata<<fileContent;
 		Database *db = new Database();
-		db->open(dataBaseName);
-
-	    db->query(TORRENTS_TABLE);
+		
 
 			int i = 0;
 
@@ -105,12 +103,14 @@ void CSVReader::readCollections(){
 
 					q+=",0);";
 					//q.replace(q.length()-1,2,");");
+					db->open(dataBaseName);
 					db->query(&q[0]);
+					db->close();
 				}
 				i++;
 			}
 
-	        db->close();
+	        // db->close();
 }
 CSVReader::~CSVReader() {}
 
