@@ -116,7 +116,7 @@ void request_handler::handle_request(const request& req, reply& rep)
 			  children.push_back(std::make_pair("", child));
 		  }
 
-		  pt.add_child("Torrents", children);
+		  pt.add_child(collection_id, children);
 		  std::stringstream json;
 		  boost::property_tree::json_parser::write_json(json, pt);
 
