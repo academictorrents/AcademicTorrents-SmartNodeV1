@@ -10,7 +10,7 @@ Database::~Database()
 
 bool Database::open(char* filename)
 {
-    if(sqlite3_open(filename, &database) == SQLITE_OK)
+    if(sqlite3_open_v2(filename, &database, SQLITE_OPEN_NOMUTEX, NULL) == SQLITE_OK)
         return true;
     return false;
 }
