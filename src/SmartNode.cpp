@@ -108,11 +108,11 @@ void smartnode::initDatabase(string database_location){
 void smartnode::init(){
 	smartnode::loadSettings();
 
-	//TODO make this thread a timed task solve database locking
-	updateDataThread = boost::thread(&initDatabase,settings.database_dir);
-
 	//start API on shutdown need to stop thread
 	apiThread = boost::thread(&createServer);
+	initDatabase(settings.database_dir);
+	//TODO make this thread a timed task solve database locking
+	// updateDataThread = boost::thread(&initDatabase,settings.database_dir);
 }
 
 void smartnode::shutdown(){
