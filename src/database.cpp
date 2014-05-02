@@ -10,7 +10,7 @@ Database::~Database()
 
 bool Database::open(char* filename)
 {
-    sqlite3_config(SQLITE_CONFIG_MULTITHREAD); 		
+    //sqlite3_config(SQLITE_CONFIG_MULTITHREAD); 		
     		
     if(sqlite3_open(filename, &database) == SQLITE_OK)
         return true;
@@ -110,7 +110,8 @@ void Database::updateTableInfo(){
 	Database *db = new Database();
 	db->open(DATABASE_NAME);
 	vector<vector<string> > results = db->query("select urlname from collections;");
-
+	db->close();
+	
 	for(int i = 0; i < results.size(); i++){
 		vector<string> inner = results[i];
 		for(int j = 0; j < inner.size(); j++){
