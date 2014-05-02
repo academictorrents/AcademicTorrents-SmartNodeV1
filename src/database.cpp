@@ -10,6 +10,8 @@ Database::~Database()
 
 bool Database::open(char* filename)
 {
+    sqlite3_config(SQLITE_CONFIG_MULTITHREAD); 		
+    		
     if(sqlite3_open(filename, &database) == SQLITE_OK)
         return true;
     return false;
