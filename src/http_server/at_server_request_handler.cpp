@@ -67,7 +67,7 @@ void request_handler::handle_request(const request& req, reply& rep)
 
 	  Database *db = new Database();
 	  db->open(DATABASE_NAME);
-	  vector<vector<string> > results = db->query("Select * from Collections;");
+	  vector<vector<string> > results = db->query("Select C.name, C.urlname, C.torrentcount, C.totalsizebytes, C.mirrored from Collections C;");
 	  std::vector<string> col = db->getColNames();
 	  db->close();
 
