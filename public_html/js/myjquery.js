@@ -1,60 +1,128 @@
-//can be rapped in $(document).ready( function()) or without 
-/*$(document).ready( function()
-{
-	$( ".table" ).load( "academictorrent.html" );
-});*/
-
-// var j = $.getJSON( 'test.json', function( data ) {
-//   var items = [];
-//   $.each( data, function( key, val ) {
-//     items.push( "<td id='" + key + "'>" + val + "</td>" );
-//   });
-
-//   $( "<td/>", {
-//     "class": "table",
-//     html: items.join( "" )
-//   }).appendTo( "body" );
-// });
-
-
-// $(document).ready(function(){
-// 	$.getJSON('/Users/manijalilian/Desktop/AcademicTorrent/external.json', function(data){
-// 		console.log(data.name)
-// 	});
-// });
-
-
+$(function(){
 $.getJSON('http://at01.cs.umb.edu:6801/collections', function(data){
-	console.log(data);
+	//console.log(data);
 }).done(function( data ) {
-	var table_obj = $('table');
-	$.each( data.Collections, function( name, size ) {
+	var table_obj = $("#tr0");
+	$.each( data.Collections, function( name, totalsizebytes, urlname, torrent_count ) {
 		var table_row = $('<tr>' );
-		var table_cell1 = $('<td>', {html: this.name,});
-		var table_cell2 = $('<td>', {html: this.size});
-		var checkbox = $('<input type="checkbox" value="remember-me"></input>');
+		var coll_id = this.urlname;
+		var table_cell1 = $('<td id=' + coll_id +'>' + this.name + '</td>');
+		var table_cell2 = $('<td>', {html: bytesToSize(this.totalsizebytes)});
+		var checkbox = $('<input type="checkbox" value="'+ coll_id + '"></input>');
+		
 
-		table_row.append(checkbox);
+		//table_row.append(checkbox);
 		table_row.append(table_cell1);
 		table_row.append(table_cell2);
 		table_obj.append(table_row);
-		console.log(this.name+ ' '+this.size);
+		//console.log(this.name+ ' '+bytesToSize(this.totalsizebytes) + coll_id);
 	});
+	//console.log($('td'));
+	
+	$('td').click(function(e){
+		console.log("mani2");
+		var urlName = $(this).attr('id');
+		var COLLECTIONAPI = "http://at01.cs.umb.edu:6801/collections/" + urlName;
+		//console.log(COLLECTIONAPI);
+		$("#table1").empty();
+		$.ajax({
+			type : 'GET',
+			url: COLLECTIONAPI,
+			dataType: 'json',
+			success:function(data) {
+				console.log("success");
+				//console.log(data);
+				myFunction(urlName, data);
+			},
+			complete :function(data) {
+				console.log("complete");
+			},
+						error :function(data, error) {
+				console.log("error" + error);
+			}
+
+		});
+		console.log("finish");
+ 	//myFunction(urlName);
+ });
+});
 });
 
-// $.getJSON('collections.json', function(data){
-// 	console.log(data);
-// }).done(function( data ) {
-// 	var table_obj = $('table');
-// 	$.each( data.Collections, function( name, size ) {
-// 		var table_row = $('<tr>' );
-// 		var table_row_close = $('</tr>' );
-// 		var table_cell1 = $('<td>', {html: this.name,});
-// 		var table_cell2 = $('<td>', {html: this.size});
-// 		table_obj.append(table_row);
-// 		table_row.append(table_cell1);
-// 		table_row.append(table_cell2);
-// 		table_obj.append(table_row_close);
-// 		console.log(this.name+ ' '+this.size);
-// 	});
+function bytesToSize(bytes) {
+	// var sizes = [ '0','bytes', 'KB', 'MB', 'GB', 'TB'];
+	// //bytes *= 1;
+	// var i =+ Math.floor(Math.log(bytes) / Math.log(1024));
+	// return  (bytes / Math.pow(1024, i)).toFixed( i ? 1 : 0 ) + ' ' + sizes[ i+1 ];
+
+	var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+	var posttxt = 0;
+	if(bytes === "0"){
+		bytes = 0.0;
+	}
+//if (bytes == 0) return 0;
+while( bytes >= 1024 ) { 
+	posttxt++;
+	bytes /= 1024;
+}   
+return  bytes.toFixed(1) + ' '+sizes[posttxt];
+}
+
+
+//var urlName = $('td').attr('id');
+//var COLLECTIONAPI = 'http://at01.cs.umb.edu:6801/collections/' + urlName;
+//console.log(COLLECTIONAPI);
+
+
+	
+//	$('td').click(function(e){
+//		console.log("mani2");
+//		var urlName = $(this).attr('id');
+//		var urlName = $(this).attr('id');
+//		var COLLECTIONAPI = "http://at01.cs.umb.edu:6801/collections/" + urlName;
+//		console.log(COLLECTIONAPI);
+//		$("#table1").empty();
+////		$.ajax({
+////			type : 'GET',
+////			url: COLLECTIONAPI,
+////			dataType: 'json',
+////			success:function(data) {
+////				console.log("success");
+////				myFunction(urlName, data);
+////			},
+////			complete :function(data) {
+////				console.log("complete");
+////			},
+////						error :function(data, error) {
+////				console.log("error" + error);
+////			},
+////			data: "hello world"
+////
+////		});
+//		console.log("finish");
+// 	//myFunction(urlName);
 // });
+
+
+	function myFunction(collection_name, data){
+		var table_obj = $("#table1");
+		console.log(data);
+	$.each( data[collection_name], function( name, sizebytes, type, mirrors ) {
+		var table_row = $('<tr>' );
+		//var coll_id = this.urlname;
+		var table_cell1 = $('<td >',{html: this.name} );
+		var table_cell2 = $('<td>', {html: bytesToSize(this.sizebytes)});
+		var table_cell3 = $('<td>', {html: this.type});
+		var table_cell4 = $('<td>', {html: this.mirrors});
+
+		//var checkbox = $('<input type="checkbox" value="'+ coll_id + '"></input>');
+		
+
+		//table_row.append(checkbox);
+		table_row.append(table_cell1);
+		table_row.append(table_cell2);
+		table_row.append(table_cell3);
+		table_row.append(table_cell4);
+		table_obj.append(table_row);
+		//console.log(this.name+ ' '+bytesToSize(this.size) + coll_id);
+	});	
+	}
