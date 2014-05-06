@@ -11,6 +11,16 @@
 #include "database.hpp"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <boost/lexical_cast.hpp>
+#include <boost/algorithm/string.hpp>
+#include <boost/regex.hpp>
+#include "at_server_mime_types.hpp"
+#include "at_server_reply.hpp"
+#include "at_server_request.hpp"
+
 
 using boost::property_tree::ptree;
 

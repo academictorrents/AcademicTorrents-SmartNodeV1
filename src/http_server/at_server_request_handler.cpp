@@ -3,14 +3,6 @@
 //
 
 #include "at_server_request_handler.hpp"
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <boost/lexical_cast.hpp>
-#include <boost/algorithm/string.hpp>
-#include "at_server_mime_types.hpp"
-#include "at_server_reply.hpp"
-#include "at_server_request.hpp"
 
 namespace http {
 namespace at_server {
@@ -24,6 +16,10 @@ void request_handler::handle_request(const request& req, reply& rep)
 {
   // Decode url to path.
   std::string request_path;
+//  static const boost::regex collection_i("?=", boost::regex::icase);
+  static const boost::regex collections("^/collections/?$" ,boost::regex::icase);
+  static const boost::regex collection_info("^/collections/[a-z,0-9,\-]+/?$", boost::regex::icase);
+
   if (!url_decode(req.uri, request_path))
   {
     rep = reply::stock_reply(reply::bad_request);
@@ -38,22 +34,13 @@ void request_handler::handle_request(const request& req, reply& rep)
     return;
   }
 
-  vector<string> parts;
-  boost::split(parts, request_path, boost::is_any_of("/"));
-  int path_size = parts.size();
-
   // If path ends in slash (i.e. is a directory) then add "index.html".
-  if (request_path[request_path.size() - 1] == '/')
+  if (request_path.size() == 1 && request_path[request_path.size() - 1] == '/')
   {
-
     request_path += "index.html";
   }
 
-  switch (path_size){
-
-
-  case 2:
-	  if(parts[path_size - 1] == "collections" || parts[path_size - 1] == "collections/" ){
+	  if(boost::regex_search(request_path, collections)){
 	  boost::property_tree::ptree pt;
 	  boost::property_tree::ptree children;
 	  boost::property_tree::ptree child;
@@ -86,14 +73,23 @@ void request_handler::handle_request(const request& req, reply& rep)
 
 	    return;
   }
-	  break;
-  case 3:
-	  if(parts[path_size - 2] == "collections"){
-		  std::string collection_id = parts[path_size -1];
+
+ if(boost::regex_search(request_path, collection_info)){
+	 std:: string collection_id;
+	 std::vector<string> splits;
+	 boost::split(splits, request_path, boost::is_any_of("/"));
+		  if(splits[splits.size() - 1] != ""){
+			  collection_id = splits[splits.size() - 1];
+		  } else {
+			  collection_id = splits[splits.size() - 2];
+		  }
+//		  boost::regex_search(request_path, collection_id, collection_i);
 
 		  boost::property_tree::ptree pt;
 		  boost::property_tree::ptree children;
 		  boost::property_tree::ptree child;
+
+//		  cout << std::string(collection_id[0].first, collection_id[0].second);
 
 		  Database *db = new Database();
 		  db->open(DATABASE_NAME);
@@ -123,13 +119,6 @@ void request_handler::handle_request(const request& req, reply& rep)
 
 		  return;
 	  }
-	  break;
-
-  default:
-	  break;
-  }
-
-
 
   // Determine the file extension.
   std::size_t last_slash_pos = request_path.find_last_of("/");
