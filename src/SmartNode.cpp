@@ -129,6 +129,26 @@ bool yes(libtorrent::torrent_status const&)
 int main(int argc, char **argv) {
 	using namespace libtorrent;
 
+	pid_t pid, sid;
+
+	pid = fork();
+
+	if(pid < 0){
+		exit(EXIT_FAILURE);
+	}
+	if(pid > 0){
+		exit(EXIT_SUCCESS);
+	}
+
+	/* Change the file mode mask */
+	umask(0);
+
+    sid = setsid();
+    if (sid < 0) {
+            /* Log the failure */
+            exit(EXIT_FAILURE);
+    }
+
 	smartnode node;
 	node.init();
 
@@ -198,9 +218,12 @@ int main(int argc, char **argv) {
 //	}
 
 	//wait for thread to finish
-	node.shutdown();
+	while(1){
+//	node.shutdown();
+    }
 
-	return 0;
+//	return 0;
+    exit(EXIT_SUCCESS);
 }
   
 #endif

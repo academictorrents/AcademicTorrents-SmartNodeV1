@@ -9,6 +9,7 @@
 #define SmartNode_HPP_
 
 #include <iostream>
+#include <stdlib.h>
 #include <string>
 #include <vector>
 #include <boost/asio/impl/src.hpp>
