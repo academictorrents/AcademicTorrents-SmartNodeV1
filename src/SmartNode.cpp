@@ -22,7 +22,6 @@ smartnode::smartnode(){
 void smartnode::createServer(){
 	  try
 	  {
-
 	    // Initialise the server.
 	    std::size_t num_threads = boost::lexical_cast<std::size_t>(3);
 	    http::at_server::server s("127.0.0.1", "6801", "./public_html", num_threads);
@@ -51,6 +50,7 @@ void smartnode::loadSettings(){
 	smartnode::settings.database_dir = json_settings.get<std::string>("settings.database_dir");
 	smartnode::settings.max_size = json_settings.get<long>("settings.max_size");
 	smartnode::settings.max_threads = json_settings.get<int>("settings.max_threads");
+	smartnode::settings.data_dir = json_settings.get<std::string>("settings.data_dir");
 	} else {
 		//TODO make this create a new file or output an error
 		cout << "error";
@@ -66,6 +66,7 @@ void smartnode::saveSettings(){
 	//convert int/long to string for json
 	arr.push_back(std::make_pair("max_size", boost::lexical_cast<std::string>(settings.max_size)));
 	arr.push_back(std::make_pair("max_threads", boost::lexical_cast<std::string>(settings.max_threads)));
+	arr.push_back(std::make_pair("data_dir", boost::lexical_cast<std::string>(settings.data_dir)));
 
 	json_settings.put_child("settings",arr);
 
@@ -110,7 +111,7 @@ void smartnode::init(){
 
 	//start API on shutdown need to stop thread
 	apiThread = boost::thread(&createServer);
-	//	initDatabase(settings.database_dir);
+	initDatabase(settings.database_dir);
 	//TODO make this thread a timed task solve database locking
 	 updateDataThread = boost::thread(&initDatabase,settings.database_dir);
 }

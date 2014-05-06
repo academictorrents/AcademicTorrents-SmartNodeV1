@@ -39,6 +39,7 @@ private:
 		long max_size;
 		int max_threads;
 		std::string database_dir;
+		std::string data_dir;
 	};
 
 	node_settings settings;

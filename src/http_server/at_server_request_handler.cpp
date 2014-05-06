@@ -19,6 +19,7 @@ void request_handler::handle_request(const request& req, reply& rep)
 //  static const boost::regex collection_i("?=", boost::regex::icase);
   static const boost::regex collections("^/collections/?$" ,boost::regex::icase);
   static const boost::regex collection_info("^/collections/[a-z,0-9,\-]+/?$", boost::regex::icase);
+  static const boost::regex collection_data("^/data/[a-z,0-9,\-]+/?$", boost::regex::icase);
 
   if (!url_decode(req.uri, request_path))
   {
@@ -94,7 +95,7 @@ void request_handler::handle_request(const request& req, reply& rep)
 		  Database *db = new Database();
 		  db->open(DATABASE_NAME);
 		  vector<vector<string> > results =
-				  db->query("SELECT DISTINCT T.type, T.name, T.infohash, T.sizebytes, T.mirrors, T.downloaders, T.timescompleted, T.dateadded, T.datemodified, T.bibtex FROM torrents T JOIN Collections2Torrents C ON T.infohash=C.infohash WHERE C.urlname=\"" + collection_id + "\";");
+				  db->query("SELECT DISTINCT T.type, T.name, T.infohash, T.sizebytes, T.mirrors, T.downloaders, T.timescompleted, T.dateadded, T.datemodified, T.status, T.bibtex FROM torrents T JOIN Collections2Torrents C ON T.infohash=C.infohash WHERE C.urlname=\"" + collection_id + "\";");
 		  std::vector<string> col = db->getColNames();
 		  db->close();
 		  for(int i = 0; i < results.size(); i++){
@@ -119,6 +120,42 @@ void request_handler::handle_request(const request& req, reply& rep)
 
 		  return;
 	  }
+
+ if(boost::regex_search(request_path, collection_data)){
+ 	 std:: string torrent_hash;
+ 	 std::vector<string> splits;
+ 	 std::string torrent_name;
+ 	 boost::split(splits, request_path, boost::is_any_of("/"));
+ 		  if(splits[splits.size() - 1] != ""){
+ 			  torrent_hash = splits[splits.size() - 1];
+ 		  } else {
+ 			  torrent_hash = splits[splits.size() - 2];
+ 		  }
+
+ 		  Database *db = new Database();
+ 		  db->open(DATABASE_NAME);
+ 		  vector<vector<string> > results = db->query("Select T.filename FROM Torrents T WHERE T.infohash=" + torrent_hash + ";");
+ 		  db->close();
+
+		  for(int i = 0; i < results.size(); i++){
+			  vector<string> inner = results[i];
+			  for(int j = 0; j < inner.size(); j++){
+				  torrent_name = inner[j];
+			  }
+		  }
+
+ 		  rep.status = reply::ok;
+ 		  rep.content.append(torrent_name);
+ 		  rep.headers.resize(2);
+ 		  rep.headers[0].name = "Content-Length";
+ 		  rep.headers[0].value = boost::lexical_cast<std::string>(rep.content.size());
+ 		  rep.headers[1].name = "Content-Type";
+ 		  rep.headers[1].value = mime_types::extension_to_type("json");
+
+ 		  return;
+ 	  }
+
+
 
   // Determine the file extension.
   std::size_t last_slash_pos = request_path.find_last_of("/");
