@@ -39,17 +39,21 @@ private:
 		long max_size;
 		int max_threads;
 		std::string database_dir;
+		std::string data_dir;
 	};
 
 	node_settings settings;
-
 	libtorrent::session s;
-
+	libtorrent::error_code ec;	
+	
 	boost::thread apiThread;
 	boost::thread updateDataThread;
+	boost::thread sessionThread;
 
 	static void createServer();
 	static void initDatabase(string);
+	static void runSession(libtorrent::session *);
+
 
 
 public:
@@ -57,6 +61,11 @@ public:
 	void init();
 	void loadSettings();
 	void saveSettings();
+	static bool query_new(vector<vector<string> >*)
+	static bool query_active(vector<vector<string> >*);
+	//void update_status(int, string);
+	static void add_dl_to_ses(libtorrent::session*, vector<vector<string> >);
+	static void add_sd_to_ses(libtorrent::session*, vector<vector<string> >);
 	void shutdown();
 };
 

@@ -13,12 +13,20 @@
 
 #ifdef DEBUG
 
+using namespace libtorrent;
 
 smartnode::smartnode(){
 	loadSettings();
 	saveSettings();
 }
 
+bool yes(libtorrent::torrent_status const&)
+{ return true; }
+
+static void folderCreator(string path) {
+	string comand = "mkdir " + path;
+	system(comand.c_str());
+}
 void smartnode::createServer(){
 	  try
 	  {
@@ -92,7 +100,7 @@ void smartnode::initDatabase(string database_location){
 
 		//create tables
 		db->query(TORRENTS_TABLE);
-		db->query(COLLECTIONS_TABLE);
+		db->query(COLLECTIONS_TABLE); 
 		db->query(COLLECTION2TORRENTS_TABLE);
 		db->close();
 		db->updateTableInfo();
@@ -104,6 +112,102 @@ void smartnode::initDatabase(string database_location){
 	}
 }
 
+void update_status(int status, string infohash){
+	string update_query = "UPDATE Torrents SET status=" + boost::lexical_cast<string> (status) + " WHERE infohash=\""+ infohash + "\";";
+	Database *db = new Database();
+	db->query(update_query.c_str());
+	db->close();
+}
+
+void smartnode::add_dl_to_ses(libtorrent::session* ses, vector<vector<string> > tors){
+	for (vector<vector<string> >::iterator it_outer = tors.begin();
+				it_outer != tors.end(); ++it_outer) {
+			vector<string> vec = *it_outer;
+
+			libtorrent::add_torrent_params p;
+			cout << vec.at(1) << endl;
+
+			//cout << "got here" << endl;
+			//making folder
+			string path = settings.data_dir + vec.at(1) + "/";
+			folderCreator(path);
+			p.save_path = path;
+			p.ti = new libtorrent::torrent_info(vec.at(0));
+			ses->add_torrent(p);
+		}
+}
+
+void smartnode::add_sd_to_ses(libtorrent::session* ses, vector<vector<string> > tors){
+	for (vector<vector<string> >::iterator it_outer = tors.begin();
+				it_outer != tors.end(); ++it_outer) {
+			vector<string> vec = *it_outer;
+
+			libtorrent::add_torrent_params p;
+			cout << vec.at(1) << endl;
+
+			//making folder
+			string path = settings.data_dir + vec.at(1) + "/";
+			//folderCreator(path);
+			p.save_path = path;
+			p.ti = new libtorrent::torrent_info(vec.at(0));
+			ses->add_torrent(p);
+		}
+}
+
+bool smartnode::query_new(vector<vector<string> >* tor) {
+	Database *db = new Database();
+	*tor =
+			db->query(
+					"SELECT torrentpath, infohash from Torrents WHERE status = " + boost::lexical_cast<string>(DOWNLOAD) + ";");
+	db->close();
+	return !tor->empty();
+}
+
+bool smartnode::query_active(vector<vector<string> >* seed) {
+	Database *db = new Database();
+	//db->open(DATABASE_NAME);
+	*seed =
+			db->query(
+					"SELECT torrentpath, infohash from Torrents WHERE status = " + boost::lexical_cast<string>(SEED) + ";");
+	db->close();
+	return !seed->empty();
+}
+
+void smartnode::runSession(libtorrent::session* ses){
+	libtorrent::error_code ec;
+	ses->listen_on(std::make_pair(6800, 6800), ec);
+	// add the torrents the just need to seed
+	vector<vector<string> > tors;
+	vector<vector<string> > seeds;	
+	if(query_active(&seeds)){
+		add_sd_to_ses(ses, seeds);
+	}
+	//adding new torrents that need to be downloaded
+	if (query_new(&tors)){
+		add_dl_to_ses(ses, tors);
+	}	
+	
+	std::vector<torrent_status> ret;
+	ses->get_torrent_status(&ret, &yes, 0);
+	torrent_status ts;
+	for (int t = 0; t < ret.size(); t++) {
+		ts = ret[t];
+		while (!ts.finished) {
+			ses->refresh_torrent_status(&ret);
+			ts = ret[t];
+			std::cout << ts.progress * 100 << std::endl;
+		}
+		update_status(SEED, ts.info_hash.to_string());
+	}
+	/*
+	while (true)
+		;
+	*/
+	
+}
+
+
+
 //smart node start up
 void smartnode::init(){
 	smartnode::loadSettings();
@@ -113,6 +217,8 @@ void smartnode::init(){
 	//	initDatabase(settings.database_dir);
 	//TODO make this thread a timed task solve database locking
 	 updateDataThread = boost::thread(&initDatabase,settings.database_dir);
+
+	sessionThread = boost::thread(&runSession, &s);
 }
 
 void smartnode::shutdown(){
@@ -122,8 +228,7 @@ void smartnode::shutdown(){
 	apiThread.join();
 }
 
-bool yes(libtorrent::torrent_status const&)
-{ return true; }
+
 
 
 int main(int argc, char **argv) {
@@ -178,7 +283,7 @@ int main(int argc, char **argv) {
 //	    /*download the file*/
 //	    std::cout << *it_inner << std::endl;
 //	    add_torrent_params p;
-//	    p.save_path = "./collections/";
+//	    p.save_path = "./data/";
 //	    std::cout << "saved path" << std::endl;
 //	    p.ti = new torrent_info(*it_inner);
 //	    p.auto_managed = true;

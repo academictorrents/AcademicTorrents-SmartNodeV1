@@ -20,7 +20,7 @@ $.getJSON('http://at01.cs.umb.edu:6801/collections', function(data){
 	//console.log($('td'));
 	
 	$('td').click(function(e){
-		console.log("mani2");
+
 		var urlName = $(this).attr('id');
 		var COLLECTIONAPI = "http://at01.cs.umb.edu:6801/collections/" + urlName;
 		//console.log(COLLECTIONAPI);
@@ -107,11 +107,21 @@ return  bytes.toFixed(1) + ' '+sizes[posttxt];
 	function myFunction(collection_name, data){
 		var table_obj = $('#table1');
 		console.log(data);
-	$.each( data[collection_name], function( name, sizebytes, type, mirrors ) {
+	$.each( data[collection_name], function( name, sizebytes, type, mirrors, status, infohash, filename ) {
 		var table_row = $('<tr>' );
 		//var coll_id = this.urlname;
 		//var table_link = $('<a href=" #">' );
-		var table_cell1 = $('<td a href=" #">' + this.name + '</a>'  );
+		console.log(this.infohash);
+		console.log(this.status);
+		console.log(this.filename);
+		if ((this.status == 0 || this.status == 1) && this.filename != 'NULL'){
+			//var table_cell1 = $('<td><a href= "/data/' + this.infohash + '/' + this.filename + '">' + this.name + '</a>');
+			var table_cell1 = $('<td><a href= "/data/' + this.infohash + '/' + this.filename + '">' + this.name + '</a>');
+		}else{
+			var table_cell1 = $('<td>', {html: this.name} );
+		}
+		
+		
 		var table_cell2 = $('<td>', {html: bytesToSize(this.sizebytes)});
 		var table_cell3 = $('<td>', {html: this.type});
 		var table_cell4 = $('<td>', {html: this.mirrors});

@@ -6,7 +6,7 @@
 #include <sqlite3.h>
 #include "at_fetcher.hpp"
 
-#define TORRENTS_TABLE "create table if not exists Torrents (type TEXT, name TEXT,infohash TEXT  PRIMARY KEY,sizebytes BIGINT,mirrors INTEGER,downloaders INTEGER,timescompleted INTEGER,dateadded TEXT,datemodified TEXT, torrentpath TEXT DEFAULT 'NULL', status INTEGER DEFAULT 4, bibtex TEXT DEFAULT NULL);"
+#define TORRENTS_TABLE "create table if not exists Torrents (type TEXT, name TEXT,infohash TEXT  PRIMARY KEY,sizebytes BIGINT,mirrors INTEGER,downloaders INTEGER,timescompleted INTEGER,dateadded TEXT,datemodified TEXT, torrentpath TEXT DEFAULT 'NULL', filename TEXT DEFAULT 'NULL', status INTEGER DEFAULT 4, bibtex TEXT DEFAULT NULL);"
 #define COLLECTIONS_TABLE "CREATE TABLE if not exists Collections (name TEXT, urlname TEXT PRIMARY KEY, torrentcount INTEGER, totalsizebytes BIGINT, mirrored INTEGER DEFAULT 0);"
 #define COLLECTION2TORRENTS_TABLE "CREATE TABLE if not exists Collections2Torrents (infohash TEXT, urlname TEXT, FOREIGN KEY(infohash) REFERENCES Torrents(infohash), FOREIGN KEY(urlname) REFERENCES Collections(urlname));"
 
@@ -23,6 +23,14 @@
 #define DATABASE_NAME "smartnode.db"
 
 using namespace std;
+
+enum status{
+	DOWNLOAD = 0,
+	SEED = 1,
+	WANT = 2,
+	UNKNOWN = 3,
+	ERROR = 4
+};
 
 class Database
 

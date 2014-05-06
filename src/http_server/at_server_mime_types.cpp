@@ -21,6 +21,7 @@ struct mapping
   { "jpg", "image/jpeg" },
   { "png", "image/png" },
   { "css", "text/css" },
+  {"pdf", "application/pdf"},
   { 0, 0 } // Marks end of list.
 };
 
