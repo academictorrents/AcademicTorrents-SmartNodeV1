@@ -25,7 +25,7 @@ void smartnode::createServer(){
 
 	    // Initialise the server.
 	    std::size_t num_threads = boost::lexical_cast<std::size_t>(3);
-	    http::at_server::server s("127.0.0.1", "6801", "./public_html", num_threads);
+	    http::at_server::server s("at01.cs.umb.edu", "6801", "./public_html", num_threads);
 
 	    // Run the server until stopped.
 	    s.run();

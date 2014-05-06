@@ -110,7 +110,8 @@ return  bytes.toFixed(1) + ' '+sizes[posttxt];
 	$.each( data[collection_name], function( name, sizebytes, type, mirrors ) {
 		var table_row = $('<tr>' );
 		//var coll_id = this.urlname;
-		var table_cell1 = $('<td >',{html: this.name} );
+		//var table_link = $('<a href=" #">' );
+		var table_cell1 = $('<td a href=" #">' + this.name + '</a>'  );
 		var table_cell2 = $('<td>', {html: bytesToSize(this.sizebytes)});
 		var table_cell3 = $('<td>', {html: this.type});
 		var table_cell4 = $('<td>', {html: this.mirrors});
@@ -119,6 +120,7 @@ return  bytes.toFixed(1) + ' '+sizes[posttxt];
 		
 		$('#collection-name').text(collection_name);
 		//table_row.append(checkbox);
+		//table_obj.append(table_link);
 		table_row.append(table_cell1);
 		table_row.append(table_cell2);
 		table_row.append(table_cell3);
