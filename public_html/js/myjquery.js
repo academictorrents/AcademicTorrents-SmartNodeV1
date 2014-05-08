@@ -109,13 +109,11 @@ return  bytes.toFixed(1) + ' '+sizes[posttxt];
 		console.log(data);
 	$.each( data[collection_name], function( name, sizebytes, type, mirrors, status, infohash, filename ) {
 		var table_row = $('<tr>' );
-		//var coll_id = this.urlname;
-		//var table_link = $('<a href=" #">' );
+		
 		console.log(this.infohash);
 		console.log(this.status);
 		console.log(this.filename);
 		if ((this.status == 0 || this.status == 1) && this.filename != 'NULL'){
-			//var table_cell1 = $('<td><a href= "/data/' + this.infohash + '/' + this.filename + '">' + this.name + '</a>');
 			var table_cell1 = $('<td><a href= "/data/' + this.infohash + '/' + this.filename + '">' + this.name + '</a>');
 		}else{
 			var table_cell1 = $('<td>', {html: this.name} );
@@ -137,5 +135,8 @@ return  bytes.toFixed(1) + ' '+sizes[posttxt];
 		table_row.append(table_cell4);
 		table_obj.append(table_row);
 		//console.log(this.name+ ' '+bytesToSize(this.size) + coll_id);
+//		$('td').click(function(){
+//			
+//		});
 	});	
 	}
