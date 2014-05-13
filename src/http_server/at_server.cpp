@@ -7,6 +7,8 @@
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>
 #include <vector>
+#include "database.hpp"
+//extern Database *db;
 
 namespace http {
 namespace at_server {

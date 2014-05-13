@@ -1,8 +1,9 @@
 {
     "settings":
     {
-        "database_dir": "",
-        "max_size": "139746996348160",
-        "max_threads": "4310616"
+        "database_dir": ".\/",
+        "max_size": "1024",
+        "max_threads": "3",
+        "data_dir": ".\/data"
     }
 }

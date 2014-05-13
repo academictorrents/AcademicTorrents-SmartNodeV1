@@ -31,11 +31,11 @@
 #include "at_server.hpp"
 #include "at_fetcher.hpp"
 
-
 class smartnode{
 
 private:
-	struct node_settings{
+  
+  	struct node_settings{
 		long max_size;
 		int max_threads;
 		std::string database_dir;
@@ -43,16 +43,17 @@ private:
 	};
 
 	node_settings settings;
+
 	libtorrent::session s;
 	libtorrent::error_code ec;	
 	
 	boost::thread apiThread;
 	boost::thread updateDataThread;
-	boost::thread sessionThread;
+	boost::thread queryThread;
 
 	static void createServer();
 	static void initDatabase(string);
-	static void runSession(libtorrent::session *);
+	static void runningquery();
 
 
 
@@ -61,11 +62,9 @@ public:
 	void init();
 	void loadSettings();
 	void saveSettings();
-	static bool query_new(vector<vector<string> >*)
-	static bool query_active(vector<vector<string> >*);
-	//void update_status(int, string);
-	static void add_dl_to_ses(libtorrent::session*, vector<vector<string> >);
-	static void add_sd_to_ses(libtorrent::session*, vector<vector<string> >);
+	bool check4file(string, int);
+	void add_to_ses(int, libtorrent::session*);
+	void runSession();
 	void shutdown();
 };
 

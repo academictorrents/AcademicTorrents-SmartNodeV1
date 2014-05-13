@@ -3,7 +3,6 @@
     {
         "database_dir": ".\/",
         "max_size": "1024",
-        "max_threads": "3",
-        "data_dir": ".\/collections"
+        "max_threads": "3"
     }
 }

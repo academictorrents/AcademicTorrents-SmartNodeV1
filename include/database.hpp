@@ -3,8 +3,14 @@
 #include <string>
 #include <vector>
 #include <iostream>
+//#include <list>           // std::list
+//#include <queue>          // std::queue
+#include <boost/filesystem.hpp>
+#include <boost/heap/priority_queue.hpp>
 #include <sqlite3.h>
 #include "at_fetcher.hpp"
+
+
 
 #define TORRENTS_TABLE "create table if not exists Torrents (type TEXT, name TEXT,infohash TEXT  PRIMARY KEY,sizebytes BIGINT,mirrors INTEGER,downloaders INTEGER,timescompleted INTEGER,dateadded TEXT,datemodified TEXT, torrentpath TEXT DEFAULT 'NULL', filename TEXT DEFAULT 'NULL', status INTEGER DEFAULT 4, bibtex TEXT DEFAULT NULL);"
 #define COLLECTIONS_TABLE "CREATE TABLE if not exists Collections (name TEXT, urlname TEXT PRIMARY KEY, torrentcount INTEGER, totalsizebytes BIGINT, mirrored INTEGER DEFAULT 0);"
@@ -19,38 +25,106 @@
 //
 //CREATE TABLE Collections2Torrents (infohash TEXT, urlname TEXT, FOREIGN KEY(infohash) REFERENCES Torrents(infohash), FOREIGN KEY(urlname) REFERENCES Collections(urlname));"
 
-
 #define DATABASE_NAME "smartnode.db"
 
-using namespace std;
 
-enum status{
-	DOWNLOAD = 0,
-	SEED = 1,
-	WANT = 2,
-	UNKNOWN = 3,
-	ERROR = 4
+
+using namespace std;
+//Database *db = new Database();
+
+//struct query_str {
+//	string command;
+//	vector<vector<string> > *result;
+//	bool returned;
+//	int priority;
+//	int operator<(const query_str other) const {
+//		return priority < other.priority;
+//	}
+//	int operator>(const query_str other) const {
+//		return priority > other.priority;
+//	}
+//	void swap(query_str& obj, query_str& obj2)
+//	{
+//		std::swap(obj.command, obj2.command);
+//		std::swap(obj.priority, obj2.priority);
+//	}
+//
+//	query_str& operator=(query_str a) {
+//		//this->swap(a);
+//		a.swap(*this);
+//		return *this;
+//	}
+//};
+
+//struct ComparePriority: public std::binary_function<query_str, query_str, bool> {
+//	bool operator()(const query_str& lhs, const query_str& rhs) const {
+//		return lhs.priority < rhs.priority;
+//	}
+//};
+
+class query_str{
+	public:
+	string command;
+	vector<vector<string> > *result;
+	bool returned;
+	int priority;
+
+	query_str();
+
+	int operator<(const query_str other) const;
+	int operator>(const query_str other) const;
+	void swap(query_str& obj);
+	query_str& operator=(query_str& a);
 };
+
+//typedef boost::heap::priority_queue<query_str> MyPriQue;
+
+enum status {
+	DOWNLOAD = 0, SEED = 1, WANT = 2, BANNED = 3, UNKNOWN = 4, ERROR = 5
+};
+
+//class Query_Queue{
+//public:
+//	Query_Queue();
+//	void addquery(query_str*);
+//	void makequery();
+//private:
+//	MyPriQue query_Queue;
+//};
 
 class Database
 
 {
 public:
-    Database();
-    ~Database();
-    bool open(char* filename);
-    vector<vector<string> > query(const string query);
-    vector<string> getColNames();
-    void close();
 
-    void updateTableInfo();
-    void updateTorrents(string);
-    void updateCollectionsList();
+	typedef boost::heap::priority_queue<query_str> MyPriQue;
+
+	Database();
+	~Database();
+	bool open(char* filename);
+
+	vector<vector<string> > query(const string query);
+	vector<string> getColNames();
+	void close();
+
+	void addquery(query_str*);
+	void addquery(query_str);
+	void makequery();
+	bool queue_empty();
+	void updateTableInfo();
+	void updateTorrents(string);
+	void updateCollectionsList();
 
 private:
-    sqlite3 *database;
-    sqlite3_stmt *statement;
-    vector<string> columns;
+
+	sqlite3 *database;
+	sqlite3_stmt *statement;
+	vector<string> columns;
+	MyPriQue query_Queue;
+
 };
+
+extern Database *db;
+
 #endif
 

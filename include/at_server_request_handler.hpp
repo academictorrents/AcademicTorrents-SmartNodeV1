@@ -7,8 +7,8 @@
 #define HTTP_AT_SERVER_REQUEST_HANDLER_HPP
 
 #include <string>
+
 #include <boost/noncopyable.hpp>
-#include "database.hpp"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <fstream>
@@ -20,7 +20,8 @@
 #include "at_server_mime_types.hpp"
 #include "at_server_reply.hpp"
 #include "at_server_request.hpp"
-
+#include "database.hpp"
+//#include "SmartNode.hpp"
 
 using boost::property_tree::ptree;
 
