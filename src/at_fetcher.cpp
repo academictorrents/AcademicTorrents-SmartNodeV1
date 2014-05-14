@@ -15,21 +15,16 @@ static void insert_collection_csv_info(boost::asio::streambuf *stream,
 		string collection) {
 	std::ostringstream ss;
 	ss << stream;
-	std::string content = ss.str();
+	std::string content = ss.str(); 
 	CSVReader reader(content, DATABASE_NAME);
 	reader.readAll(collection);
 
 	/* find Torrent that have yet to be downloaded*/
 
 	Database *db1 = new Database();
-	//sleep(100000);
-	sleep(20);
 	db1->open(DATABASE_NAME);
-	
-	
 	vector < vector<string> > results;
 	while (!db->queue_empty());
-		cout << "im doing stuff!!!!!!!!!!" << endl;
 		results = db1->query( "SELECT DISTINCT T.infohash from Torrents T JOIN Collections2Torrents CT ON T.infohash=CT.infohash WHERE CT.urlname=\"" + collection + "\" AND T.torrentpath=\"NULL\";");
 	
 	
@@ -48,6 +43,18 @@ static void insert_collection_csv_info(boost::asio::streambuf *stream,
 	}
 }
 
+static void update_bibtex(boost::asio::streambuf *stream, string cur_infohash){
+  	std::ostringstream ss;
+	ss << stream;
+	std::string content = ss.str();
+	boost::replace_all(content, "\"", "\"\"");	
+	query_str qr;
+	qr.command = "UPDATE Torrents SET bibtex=\"" + content + "\" WHERE infohash=\"" + cur_infohash + "\";";
+	qr.priority = 4;
+	db->addquery(&qr);
+}
+
+
 static void write_torrent_file(boost::asio::streambuf *stream, string) {
 	string filepath = "./data/torrent_files/" + cur_infohash + ".torrent";
 	std::string update_query;
@@ -63,13 +70,6 @@ static void write_torrent_file(boost::asio::streambuf *stream, string) {
 	dot_torrent.close();
 
 	//TODO currently only check if the database has no path. Also check for the file in the directory in case of deletion.
-	/*Update database with new file path.*/
-//		Database *db = new Database();
-//	update_query = "UPDATE Torrents SET torrentpath=\"" + filepath
-//			+ "\" WHERE infohash=\"" + cur_infohash + "\";";
-	//db->open(DATABASE_NAME);
-//	db->query(update_query.c_str());
-	//db->close();
 	query_str qr;
 	qr.command = "UPDATE Torrents SET torrentpath=\"" + filepath + "\" WHERE infohash=\"" + cur_infohash + "\";";
 	qr.priority = 4;
@@ -131,6 +131,12 @@ void at_fetcher::download_torrent_file(const std::string infohash) {
 	qr.priority = 4;
 	db->addquery(&qr);
 	}	
+}
+
+void at_fetcher::get_bibtex(const std::string infohash){
+  	boost::asio::io_service io_service;
+	async_at_client::async_at_connection c(io_service, AT_URL, std::string("/apiv2/entry/"+ infohash), update_bibtex, infohash);
+	io_service.run();
 }
 
 /* Create csv url given collection name */

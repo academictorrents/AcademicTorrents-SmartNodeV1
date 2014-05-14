@@ -30,37 +30,6 @@
 
 
 using namespace std;
-//Database *db = new Database();
-
-//struct query_str {
-//	string command;
-//	vector<vector<string> > *result;
-//	bool returned;
-//	int priority;
-//	int operator<(const query_str other) const {
-//		return priority < other.priority;
-//	}
-//	int operator>(const query_str other) const {
-//		return priority > other.priority;
-//	}
-//	void swap(query_str& obj, query_str& obj2)
-//	{
-//		std::swap(obj.command, obj2.command);
-//		std::swap(obj.priority, obj2.priority);
-//	}
-//
-//	query_str& operator=(query_str a) {
-//		//this->swap(a);
-//		a.swap(*this);
-//		return *this;
-//	}
-//};
-
-//struct ComparePriority: public std::binary_function<query_str, query_str, bool> {
-//	bool operator()(const query_str& lhs, const query_str& rhs) const {
-//		return lhs.priority < rhs.priority;
-//	}
-//};
 
 class query_str{
 	public:
@@ -80,7 +49,7 @@ class query_str{
 //typedef boost::heap::priority_queue<query_str> MyPriQue;
 
 enum status {
-	DOWNLOAD = 0, SEED = 1, WANT = 2, BANNED = 3, UNKNOWN = 4, ERROR = 5
+  DOWNLOAD = 0, SEED = 1, WANT = 2, BANNED = 3, UNKNOWN = 4, ERROR = 5, REMOVE = 6
 };
 
 //class Query_Queue{

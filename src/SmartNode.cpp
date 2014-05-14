@@ -71,6 +71,10 @@ void smartnode::loadSettings() {
 				"settings.max_size");
 		smartnode::settings.max_threads = json_settings.get<int>(
 				"settings.max_threads");
+		smartnode::settings.data_dir = json_settings.get<std::string>(
+				"settings.data_dir");
+		//smartnode::settings.sub_collection = json_settings.get<vector<string> >(
+		//		"settings.sub_collection");
 	} else {
 		//TODO make this create a new file or output an error
 		cout << "error";
@@ -90,6 +94,18 @@ void smartnode::saveSettings() {
 			std::make_pair("max_threads",
 					boost::lexical_cast < std::string
 							> (settings.max_threads)));
+	arr.push_back(
+		std::make_pair("data_dir",
+				boost::lexical_cast < std::string
+						> (settings.data_dir)));
+	arr.push_back(
+		std::make_pair("current_size",
+				boost::lexical_cast < std::string
+						> (settings.current_size)));
+	//arr.push_back(
+	//	std::make_pair("sub_collection",
+	//			boost::lexical_cast < std::vector<string> 
+	//					> (settings.sub_collection)));
 
 	json_settings.put_child("settings", arr);
 
@@ -103,32 +119,10 @@ void smartnode::saveSettings() {
 
 void smartnode::initDatabase(string database_location) {
 
-	/*
-	 * If the database file doesn't exist a new is created.
-	 */
-
-	//Database *db = new Database();
-	//look for a database
-	if (!boost::filesystem::exists(database_location.append(DATABASE_NAME))) {
-		cout << "Creating Database";
-		//db_database->open(DATABASE_NAME);
-
-		//create tables
-		/*		db_database->query(TORRENTS_TABLE);
-		 db_database->query(COLLECTIONS_TABLE);
-		 db_database->query(COLLECTION2TORRENTS_TABLE);
-		 db_database->close();
-		 cout << "Database Created!";
-		 *///done with the database connection
-	}
-
-	while (1) {
 		//update collections in database on startup
-		db->updateTableInfo();
-		//db->makequery();
-		sleep(1800);
-	}
-
+		Database *db_update = new Database();	
+		db_update->updateTableInfo();
+		sleep(3800);
 }
 
 bool smartnode::check4file(string path, int size) {
@@ -143,6 +137,7 @@ bool smartnode::check4file(string path, int size) {
 		cout << "creating " << path << endl;
 		return false;
 	}
+	return false;
 }
 
 void update_status(int status, string infohash) {
@@ -154,55 +149,77 @@ void update_status(int status, string infohash) {
 	qrs.command = update_query;
 	qrs.priority = 8;
 	db->addquery(&qrs);
+} 
+
+void update_filename(std::string filename, std::string infohash){
+/*
+	fs::path someDir("./data/"+ infohash + filename);
+	fs::directory_iterator end_iter;
+
+	if ( fs::exists(someDir) && fs::is_directory(someDir)){
+		    for( fs::directory_iterator dir_iter(someDir) ; dir_iter != end_iter ; ++dir_iter){
+			if (fs::is_regular_file(dir_iter->status()) ){
+				filename = "";			      
+			  }
+		      }
+		} 
+*/
+		string update_query = "UPDATE Torrents SET filename=\"" + filename + "\" WHERE infohash=\"" + infohash + "\";";
+		query_str qrs;
+		qrs.command = update_query;
+		qrs.priority = 8;
+		db->addquery(&qrs);  
 }
 
 void smartnode::add_to_ses(int flag, libtorrent::session* ses) {
-	cout << "adding to session!!!"<< std::endl;
-	Database *db1 = new Database();
+	
+        Database *db1 = new Database();
 	db1->open(DATABASE_NAME);
 	vector<vector<string> > torrs = db1->query(
-			"SELECT torrentpath, infohash, sizebytes from Torrents WHERE status = "
+			"SELECT DISTINCT torrentpath, infohash, sizebytes, name from Torrents WHERE status = "
 					+ boost::lexical_cast < string > (flag) + ";");
+	
 	db1->close();
 	if(!torrs.empty()){
-	for (vector<vector<string> >::iterator it_outer = torrs.begin();
-			it_outer != torrs.end(); ++it_outer) {
-		vector < string > vec = *it_outer;
+	  cout << "adding to session!!!"<< std::endl;
+	  for (vector<vector<string> >::iterator it_outer = torrs.begin();
+	       it_outer != torrs.end(); ++it_outer) {
+	    vector < string > vec = *it_outer;
+	    libtorrent::add_torrent_params *p = new libtorrent::add_torrent_params();
+	    std::string infohash = vec[1];
+		if(settings.max_size < current_size + atol((vec[2]).c_str())){
+	    	cout << "Torrent added" << infohash << endl;
+
+	    	string path = settings.data_dir + infohash + "/";
+	    	if (flag == WANT) {
+	      		//making folder
+	      		folderCreator(path);
+	      		update_status(DOWNLOAD, infohash);
+	    	}
+
+			current_size += atol((vec[2]).c_str()); 
+			cout << "bytes: "<< current_size << endl;
 		
-		libtorrent::add_torrent_params *p = new libtorrent::add_torrent_params();
-		std::string infohash = vec[1];
-		cout << infohash << endl;
 
-		string path = "./data/" + infohash + "/";
-		if (flag == WANT) {
-			//making folder
-			folderCreator(path);
-			update_status(DOWNLOAD, infohash);
+	    	p->save_path = path;
+	    	p->ti = new libtorrent::torrent_info(vec[0]);
+	    	ses->add_torrent(*p);
+	  	
+		}else{
+			cout << "can not add torrent: " << vec[3] << endl; 
 		}
-		/*} else if ((flag == SEED || flag == DOWNLOAD)
-				&& !check4file(path, atoi(vec.at(2).c_str()))) {
-			cout << "error!! " << path << "may have been remove" << endl;
-		}*/
-
-		p->save_path = path;
-		p->ti = new libtorrent::torrent_info(vec[0]);
-		ses->add_torrent(*p);
 	}
 	}
 }
 
 void smartnode::runSession() {
+       
+	current_size = 0;
+	cout << "bytes: "<< current_size << endl;
+        //add torrents that been downloaded or are in the process
+	add_to_ses(SEED, &s);
+	add_to_ses(DOWNLOAD, &s);
 
-	//vector < vector<string> > seeds;
-	// add the torrents the just need to see
-	/*	
-	if (query_status(SEED, &tors)) {
-		add_to_ses(SEED, &s, tors);
-	}
-	if (query_status(DOWNLOAD, &tors)) {*/
-		add_to_ses(DOWNLOAD, &s);
-		/*}
-	*/
 	session s;
 	libtorrent::error_code ec;
 
@@ -213,15 +230,36 @@ void smartnode::runSession() {
 
 	sleep(30);
 	cout
-			<< "wake up!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+			<< "Starting session now"
 			<< endl;
 	s.listen_on(std::make_pair(6800, 6800), ec);
+	add_to_ses(DOWNLOAD, &s);
+	
+	bool new_torrs;
+	int count = 0;
 	while (1) {
-
+	  
 		//adding new torrents that need to be downloaded
 		add_to_ses(WANT, &s);
-
-		std::vector < torrent_status > ret;
+		
+		std::vector<torrent_handle> torrents_in_session = s.get_torrents();
+		torrent_handle t_handler;
+	    
+		cout << torrents_in_session.size();
+		
+		for(int j = 0; j < torrents_in_session.size(); j++){
+		  t_handler = torrents_in_session[j]; 
+		  std::stringstream ss_sha; 
+		  ss_sha << t_handler.info_hash();
+		  
+		  bool seeding = t_handler.is_seed();
+		  if(seeding){	
+		    seeds.insert(ss_sha.str());
+		    update_filename(t_handler.name(), ss_sha.str());
+		    update_status(SEED, ss_sha.str());
+		  }	
+		}
+		/*std::vector < torrent_status > ret;
 		s.get_torrent_status(&ret, &yes, 0);
 		torrent_status ts;
 		for (int t = 0; t < ret.size(); t++) {
@@ -232,8 +270,10 @@ void smartnode::runSession() {
 				std::cout << ts.progress * 100 << std::endl;
 			}
 			//break shit.
-			//update_status(SEED, ts.info_hash.to_string());
-		}
+			string tor_info_hash(ts.info_hash.to_string());
+			update_status(SEED, tor_info_hash);
+			}
+		*/
 		//2 mins.
 	       sleep(120);
 	}

@@ -17,11 +17,13 @@ void request_handler::handle_request(const request& req, reply& rep) {
 	// Decode url to path.
 	std::string request_path;
 //  static const boost::regex collection_i("?=", boost::regex::icase);
+	static const boost::regex log_file("^/log/?$",
+			boost::regex::icase);
 	static const boost::regex collections("^/collections/?$",
 			boost::regex::icase);
 	static const boost::regex collection_info("^/collections/[a-z,0-9,\-]+/?$",
 			boost::regex::icase);
-	static const boost::regex collection_data("^/data/[a-z,0-9,\-]+/?$",
+	static const boost::regex collection_data("^/data/[a-z,0-9,\-]*.*/?$",
 			boost::regex::icase);
 	static const boost::regex collection_subscribe(
 			"^/subscribe/[a-z,0-9,\-]+/?$", boost::regex::icase);
@@ -46,6 +48,44 @@ void request_handler::handle_request(const request& req, reply& rep) {
 		request_path += "index.html";
 	}
 
+	if(boost::regex_search(request_path, log_file)){
+	  stringstream content;
+	  string line;
+	  ifstream myfile ("smartnode_log.log");
+	  
+	  if (myfile.is_open()){
+	    while ( getline (myfile,line) )
+	      {
+		content << line << "\n";
+	      }
+	    myfile.close();
+	    
+	  rep.status = reply::ok;
+	  rep.content.append(content.str());
+	  rep.headers.resize(2);
+	  rep.headers[0].name = "Content-Length";
+	  rep.headers[0].value = boost::lexical_cast < std::string
+						       > (rep.content.size());
+	  rep.headers[1].name = "Content-Type";
+	  rep.headers[1].value = mime_types::extension_to_type("text");
+	  
+	  return;
+
+	  } 
+	  else {
+	    rep.status = reply::not_found;
+	    rep.content.append("Unable to open file");
+	    rep.headers.resize(2);
+	    rep.headers[0].name = "Content-Length";
+	    rep.headers[0].value = boost::lexical_cast < std::string
+							 > (rep.content.size());
+	    rep.headers[1].name = "Content-Type";
+	    rep.headers[1].value = mime_types::extension_to_type("text");
+	    
+	    return;
+	  } 
+	}
+
 	if (boost::regex_search(request_path, collections)) {
 		boost::property_tree::ptree pt;
 		boost::property_tree::ptree children;
@@ -62,8 +102,8 @@ void request_handler::handle_request(const request& req, reply& rep) {
 		for (std::vector<vector<string> >::iterator it_outer = results.begin();
 				it_outer != results.end(); ++it_outer) {
 			vector < string > vec = *it_outer;
-			for (int i = 0; i < 5; i++) {
-				child.put(col[i], vec[i]);
+			for (int i = 0; i < col.size(); i++) { 
+			  child.put(col[i], vec[i]);
 			}
 			children.push_back(std::make_pair("", child));
 		}
@@ -93,13 +133,10 @@ void request_handler::handle_request(const request& req, reply& rep) {
 		} else {
 			collection_id = splits[splits.size() - 2];
 		}
-//		  boost::regex_search(request_path, collection_id, collection_i);
 
 		boost::property_tree::ptree pt;
 		boost::property_tree::ptree children;
 		boost::property_tree::ptree child;
-
-//		  cout << std::string(collection_id[0].first, collection_id[0].second);
 
 		Database *db1 = new Database();
 		db1->open(DATABASE_NAME);
@@ -109,10 +146,14 @@ void request_handler::handle_request(const request& req, reply& rep) {
 								+ collection_id + "\";");
 		std::vector < string > col = db1->getColNames();
 		db1->close();
+		string line;
 		for (int i = 0; i < results.size(); i++) {
 			vector < string > inner = results[i];
 			for (int j = 0; j < col.size(); j++) {
-				child.put(col[j], inner[j]);
+			  line = inner[j];
+			  boost::replace_all(line, "\"", ""); 
+			  child.put(col[j], line);
+				child.put(col[j], line);
 			}
 			children.push_back(std::make_pair("", child));
 		}
@@ -147,15 +188,14 @@ void request_handler::handle_request(const request& req, reply& rep) {
 				"UPDATE Torrents SET status=2 WHERE infohash IN (select C.infohash FROM Collections2Torrents C where C.urlname=\'"
 						+ collection_id + "\');";
 		qr.command = com;
-		qr.priority = 9;
+		qr.priority = 99;
 		db->addquery(&qr);
 
 		query_str qr2;
 		string com2 =
-				"UPDATE Collections SET mirrored=1 WHERE urlname=\'"
-						+ collection_id + "\');";
-		qr.command = com2;
-		qr2.priority = 9;
+				"UPDATE Collections SET mirrored=1 WHERE urlname=\'" + collection_id + "\';";
+		qr2.command = com2;
+		qr2.priority = 99;
 		db->addquery(&qr2);
 
 		rep.status = reply::ok;
@@ -179,20 +219,26 @@ void request_handler::handle_request(const request& req, reply& rep) {
 		} else {
 			collection_id = splits[splits.size() - 2];
 		}
+			
+		Database *db_unsub = new Database();
+		db_unsub->open(DATABASE_NAME);
+		vector<vector<string> > results = db_unsub->query("SELECT C.infohash FROM Collections2Torrents C WHERE C.urlname=\'" + collection_id + "\');");
+		vector<vector<string> > results_2;
+	
 		query_str qr;
 		string com =
-				"UPDATE Torrents SET status=4 WHERE infohash IN (select C.infohash FROM Collections2Torrents C where C.urlname=\'"
+				"UPDATE Torrents SET status=6 WHERE infohash IN (select C.infohash FROM Collections2Torrents C where C.urlname=\'"
 						+ collection_id + "\');";
 		qr.command = com;
-		qr.priority = 9;
+		qr.priority = 99;
 		db->addquery(&qr);
 
 		query_str qr2;
 		string com2 =
 				"UPDATE Collections SET mirrored=0 WHERE urlname=\'"
-						+ collection_id + "\');";
+						+ collection_id + "\';";
 		qr.command = com2;
-		qr2.priority = 9;
+		qr2.priority = 99;
 		db->addquery(&qr2);
 
 		rep.status = reply::ok;
@@ -208,42 +254,88 @@ void request_handler::handle_request(const request& req, reply& rep) {
 	}
 
 	if (boost::regex_search(request_path, collection_data)) {
-		std::string torrent_hash;
+		std::string torrent_path = "./data/";
 		std::vector < string > splits;
-		std::string torrent_name;
+
 		boost::split(splits, request_path, boost::is_any_of("/"));
 		if (splits[splits.size() - 1] != "") {
-			torrent_hash = splits[splits.size() - 1];
+		        torrent_path += splits[splits.size() - 1];
+			torrent_path += splits[splits.size() - 2];
 		} else {
-			torrent_hash = splits[splits.size() - 2];
+		        torrent_path += splits[splits.size() - 2];
+			torrent_path += splits[splits.size() - 3];
 		}
+/*
+          stringstream content;
+	  string line;
+          content << torrent_path;
+	  fstream myfile( content.str());
+	  
+	  if (myfile.is_open()){
+	    while ( getline (myfile,line) )
+	      {
+		content << line << "\n";
+	      }
+	    myfile.close();
+	    
+	  rep.status = reply::ok;
+	  rep.content.append(content.str());
+	  rep.headers.resize(2);
+	  rep.headers[0].name = "Content-Length";
+	  rep.headers[0].value = boost::lexical_cast < std::string
+						       > (rep.content.size());
+	  rep.headers[1].name = "Content-Type";
+	  rep.headers[1].value = mime_types::extension_to_type("pdf");
+	  
+	  return;
 
-		Database *db1 = new Database();
-		db1->open(DATABASE_NAME);
-		vector < vector<string> > results = db1->query(
-				"Select T.filename FROM Torrents T WHERE T.infohash="
-						+ torrent_hash + ";");
-		db1->close();
+	  } */
+			       
 
-		for (int i = 0; i < results.size(); i++) {
-			vector < string > inner = results[i];
-			for (int j = 0; j < inner.size(); j++) {
-				torrent_name = inner[j];
-			}
-		}
+		// Database *db1 = new Database();
+		// db1->open(DATABASE_NAME);
+		// vector < vector<string> > results = db1->query(
+		// 		"Select T.filename FROM Torrents T WHERE T.infohash="
+		// 				+ torrent_hash + ";");
+		// db1->close();
 
+		// for (int i = 0; i < results.size(); i++) {
+		// 	vector < string > inner = results[i];
+		// 	for (int j = 0; j < inner.size(); j++) {
+		// 		torrent_name = inner[j];
+		// 	}
+		// }
+		/*
+		fs::path someDir("./data/"+ torrent_name);
+		fs::directory_iterator end_iter;
+
+		if ( fs::exists(someDir) && fs::is_directory(someDir))
+		  {
+		    for( fs::directory_iterator dir_iter(someDir) ; dir_iter != end_iter ; ++dir_iter)
+		      {
+			if (fs::is_regular_file(dir_iter->status()) )
+			  {
+			    content << fs::last_write_time(dir_iter->status()), *dir_iter);
+					      
+			  }
+		      }
+	           }
+	*/
+		
+		
+	/*
 		rep.status = reply::ok;
-		rep.content.append(torrent_name);
+		rep.content.append("");
 		rep.headers.resize(2);
 		rep.headers[0].name = "Content-Length";
 		rep.headers[0].value = boost::lexical_cast < std::string
 				> (rep.content.size());
 		rep.headers[1].name = "Content-Type";
-		rep.headers[1].value = mime_types::extension_to_type("json");
-
-		return;
+		rep.headers[1].value = mime_types::extension_to_type("pdf");
+	
+		return;*/
 	}
-
+	
 	// Determine the file extension.
 	std::size_t last_slash_pos = request_path.find_last_of("/");
 	std::size_t last_dot_pos = request_path.find_last_of(".");
@@ -256,8 +348,12 @@ void request_handler::handle_request(const request& req, reply& rep) {
 	std::string full_path = doc_root_ + request_path;
 	std::ifstream is(full_path.c_str(), std::ios::in | std::ios::binary);
 	if (!is) {
-		rep = reply::stock_reply(reply::not_found);
+		full_path = "./" + request_path;
+		is.open(full_path.c_str(), std::ios::in | std::ios::binary);
+		if(!is){
+			rep = reply::stock_reply(reply::not_found);
 		return;
+		}
 	}
 
 	// Fill out the reply to be sent to the client.
@@ -271,6 +367,7 @@ void request_handler::handle_request(const request& req, reply& rep) {
 			> (rep.content.size());
 	rep.headers[1].name = "Content-Type";
 	rep.headers[1].value = mime_types::extension_to_type(extension);
+	
 }
 
 bool request_handler::url_decode(const std::string& in, std::string& out) {

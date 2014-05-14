@@ -172,18 +172,3 @@ using namespace async_at_client;
 		}
 	  }
 
-//int main()
-//{
-//  try
-//  {
-//    boost::asio::io_service io_service;
-//    async_at_connection c(io_service, "www.academictorrents.com", "/download/cb1655a57dd24345c9ea7a43c5ec09e03c7a0979.torrent"); //  /collection/umass-boston-cs-department.csv /collections.php?format=.csv
-//    io_service.run();
-//  }
-//  catch (std::exception& e)
-//  {
-//    std::cout << "Exception: " << e.what() << "\n";
-//  }
-//
-//  return 0;
-//}

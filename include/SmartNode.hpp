@@ -25,6 +25,9 @@
 #include <libtorrent/torrent_handle.hpp>
 #include <libtorrent/torrent_info.hpp>
 #include <libtorrent/settings.hpp>
+//#include <libtorrent/sha1_hash.hpp>
+#include <set>
+#include <utility>
 #include "async_at_connection.hpp"
 #include "CSVReader.hpp"
 #include "database.hpp"
@@ -40,6 +43,14 @@ private:
 		int max_threads;
 		std::string database_dir;
 		std::string data_dir;
+		std::string current_size;
+		std::vector<string> sub_collection;
+	
+	  node_settings():max_size(1024),
+			  max_threads(3),
+			  database_dir(".\/"),
+			  data_dir(".\/data\/"),
+			  current_size(""){}
 	};
 
 	node_settings settings;
@@ -54,7 +65,8 @@ private:
 	static void createServer();
 	static void initDatabase(string);
 	static void runningquery();
-
+	std::set<std::string> seeds;
+	long current_size;
 
 
 public:

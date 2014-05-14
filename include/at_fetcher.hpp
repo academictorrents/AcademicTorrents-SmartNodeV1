@@ -28,6 +28,9 @@ class at_fetcher{
 		void parse_collection_list(const std::string url);
 		//param infohash
 		void download_torrent_file(const std::string infohash);
+                void get_bibtex(const std::string infohash); 
+   
+
 	private:
 		std::string get_collection_csv(const std::string collection);
 		std::string create_torrent_file_url(const std::string infohash);

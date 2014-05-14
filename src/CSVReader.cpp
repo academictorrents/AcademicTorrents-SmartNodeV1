@@ -31,15 +31,8 @@ void CSVReader::readAll(string collection_name) {
 
 	stringstream mydata;
 	mydata << fileContent;
-//	Database *db = new Database();
-
-	sqlite3 *db_exec;
-	char *zErrMsg = 0;
-	int rc;
 
 	int i = 0;
-
-	//rc = sqlite3_open_v2(DATABASE_NAME, &db_exec, SQLITE_OPEN_READWRITE, NULL);
 
 	//if (rc == SQLITE_OK) {
 		while (getline(mydata, line)) {
@@ -71,47 +64,7 @@ void CSVReader::readAll(string collection_name) {
 						q += fields[j] + ",";
 
 				q += fields[fields.size() - 1] + ");";
-				//db->open(dataBaseName);
-				/*int retval;
-				 bool continueTrying = true;
-				 while (continueTrying) {
-				 retval = sqlite3_exec(db_exec, &q[0], NULL, 0, &zErrMsg);
-				 switch (retval) {
-				 case SQLITE_BUSY:
-				 // Log("[%s] SQLITE_BUSY: sleeping fow a while...", threadName);
-				 sleep(3000);
-				 break;
-				 case SQLITE_OK:
-				 continueTrying = false; // We're done
-				 break;
-				 default:
-				 //Log("[%s] Can't execute \"%s\": %s\n", threadName, sqlQuery, msg);
-				 continueTrying = false;
-				 break;
-				 }
-				 }
-				 continueTrying = true;
-				 string q2 =
-				 "INSERT OR IGNORE INTO Collections2Torrents VALUES(\'"
-				 + fields[2] + "\', \'" + collection_name
-				 + "\');";
-				 while (continueTrying) {
-				 retval = sqlite3_exec(db_exec, &q2[0], NULL, 0, &zErrMsg);
-				 switch (retval) {
-				 case SQLITE_BUSY:
-				 //Log("[%s] SQLITE_BUSY: sleeping fow a while...", threadName);
-				 sleep(3000);
-				 break;
-				 case SQLITE_OK:
-				 continueTrying = false; // We're done
-				 break;
-				 default:
-				 //Log("[%s] Can't execute \"%s\": %s\n", threadName, sqlQuery, msg);
-				 continueTrying = false;
-				 break;
-				 }
-				 }
-				 */
+
 				//db->query(&q[0]);
 				//db->query("INSERT OR IGNORE INTO Collections2Torrents VALUES(\'"+ fields[2] + "\', \'" + collection_name+ "\');";
 				query_str qr;
@@ -157,10 +110,6 @@ void CSVReader::readCollections() {
 
 	int i = 0;
 
-	//db->open(dataBaseName);
-	//rc = sqlite3_open_v2(DATABASE_NAME, &db_exec, SQLITE_OPEN_READWRITE, NULL);
-	//if (rc == SQLITE_OK) {
-
 		while (getline(mydata, line)) {
 			if (i != 0) {
 				boost::split(fields, line, boost::is_any_of(","));
@@ -176,23 +125,7 @@ void CSVReader::readCollections() {
 				q += ",0);";
 				//q.replace(q.length()-1,2,");");
 				//db->open(dataBaseName);
-				/*bool continueTrying = true;
-				 int retval;
-				 while (continueTrying) {
-				 retval = sqlite3_exec(db_exec, &q[0], NULL, 0, &zErrMsg);
-				 switch (retval) {
-				 case SQLITE_BUSY:
-				 //Log("[%s] SQLITE_BUSY: sleeping fow a while...", threadName);
-				 sleep(3000);
-				 break;
-				 case SQLITE_OK:
-				 continueTrying = false; // We're done
-				 break;
-				 default:
-				 //Log("[%s] Can't execute \"%s\": %s\n", threadName, sqlQuery, msg);
-				 continueTrying = false;
-				 break;
-				 }*/
+
 				//db->query(&q[0]);
 				query_str qr;
 				qr.command = &q[0];

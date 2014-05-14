@@ -156,34 +156,27 @@ void Database::updateTableInfo() {
 	sleep(10);
 	
 	Database *db1 = new Database();
-	cout << "aaaahhhhh!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
 	db1->open(DATABASE_NAME);
 	vector < vector<string> > results;
-	//vector < vector<string> > results_temp = db1->query("select urlname from collections;");
-	do {
-		//sleep(1000);
-		//cout << "running!!!!!!!!!!!" << endl;		
-		//results = results_temp;
-		//results_temp = db1->query("select urlname from collections;");
-		results = db1->query("select urlname from collections;");
-	}
-	while (!db->queue_empty());
-	//while (results.empty() || results_temp.size() != results.size());
-
+	results = db1->query("select urlname from collections;");
 	db1->close();
-	cout << results.size();
-	/*vector < vector<string> > results;
-	 qr.result = &results;
-	 qr.returned = false;
-	 db->addquery(qr);
-	 cout << "waiting for query";
-	 cout << qr.returned;
-	 cout << results.size();*/
+
 	for (int i = 0; i < results.size(); i++) {
 		vector < string > inner = results[i];
 		for (int j = 0; j < inner.size(); j++) {
 			cout << inner[j];
 			updateTorrents (inner[j]);
+		}
+	}
+
+	db1->open(DATABASE_NAME);
+	results = db1->query("select DISTINCT infohash from Torrents;");
+	db1->close();
+	at_fetcher fetcher;
+	for (int i = 0; i < results.size(); i++) {
+		vector < string > inner = results[i];
+		for (int j = 0; j < inner.size(); j++) {
+			fetcher.get_bibtex(inner[j]);
 		}
 	}
 }
