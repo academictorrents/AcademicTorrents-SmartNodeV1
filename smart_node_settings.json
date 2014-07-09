@@ -5,6 +5,7 @@
         "max_size": "1073741824",
         "max_threads": "3",
         "data_dir": ".\/data\/",
-        "current_size": ""
+        "current_size": "",
+        "customize_name": "V1"
     }
 }
