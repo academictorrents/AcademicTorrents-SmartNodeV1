@@ -9,9 +9,9 @@ $(function() {
 			var table_cell1 = $('<td id=' + coll_id +'>' + this.name + '</td>');
 			var table_cell2 = $('<td>', {html: bytesToSize(this.totalsizebytes)});
 			if(this.mirrored == 1){
-				var table_cell3 = $('<td> <button id="unsubscribe" type="submit" class="btn btn-warning navbar-btn">Unsubscribe <span class="glyphicon glyphicon-remove"></span></button> </td>');
+				var table_cell3 = $('<td> <button data-butid="subscribe" id="'+coll_id+'" type="submit" class="btn btn-warning navbar-btn">Unsubscribe</button> </td>');
 				}else{
-					var table_cell3 = $('<td><button id="subscribe" type="submit" class="btn btn-success btn-block">subscribe</button></td>');
+					var table_cell3 = $('<td><button data-butid="subscribe" id="'+coll_id+'" type="submit" class="btn btn-success btn-block">Subscribe</button></td>');
 				}
 			
 //			var checkbox = $('<input type="checkbox" value="'+ coll_id + '"></input>');
@@ -24,10 +24,9 @@ $(function() {
 			table_row.append(table_cell3);
 			table_obj.append(table_row);
 	//		console.log(this.mirrored);
-			if(this.mirrored == 1){
-				console.log("hello red");
-				$('#' + coll_id).html(this.name + " " +"[s]");
-			}
+//			if(this.mirrored == 1){
+//				$('#' + coll_id).html(this.name + " " +"[s]");
+//			}
 	//		Elements.clickFunction(table_row, this.mirrored, this.name);
 			//$('#subscribe').hide();
 		
@@ -66,70 +65,127 @@ $(function() {
 		});
 		console.log("finish");
  });
-
-});
-
-$("#subscribe").click(function(e){
-	var urlname = $('#collection-name').html();
-	var subscribe = confirm("Are you sure you want to subscribe to " + urlname + "?");
-	console.log(urlname);
-	if(subscribe){
-	$.ajax({
-		type : 'GET',
-		url: "/subscribe/" + urlname,
-		success:function(data) {
-			console.log("success");
-			$('#subscribe').hide();
-			$('#unsubscribe').show();
-			
-		},
-		complete :function(data) {
-			console.log("complete");
-			$('#' + coll_id).html(urlname + " " +"[s]");
-			//$('#' + coll_id).html(this.name + " " +"[s]");
-		},
-					error :function(data, error) {
-			console.log("error " + error);
+	
+//});
+	
+	
+	$("button[data-butid='subscribe']").click(function(e){
+		//var urlname = $('#collection-name').html();
+		var butt = $(this);
+		var urlname = $(this).attr("id");
+		var subOrNot = $(this).html();
+		//var subscribe = confirm("Are you sure you want to subscribe to " + urlname + "?");
+		var path = "";
+		var html = "";
+		var butClass = "";
+		
+		if(subOrNot === "Unsubscribe"){
+			var subscribe = confirm("Are you sure you want to unsubscribe to " + urlname + "?");
+			path = "/unsubscribe/" + urlname;
+			html = "Subscribe";
+			butClass = "btn btn-success btn-block";
 		}
+		else{
+			var subscribe = confirm("Are you sure you want to subscribe to " + urlname + "?");
+			path = "/subscribe/" + urlname;
+			html = "Unsubscribe";
+			butClass = "btn btn-warning navbar-btn";
+		}
+		
+		console.log(urlname);
+		console.log(path);
+		
+		if(subscribe){
+		$.ajax({
+			type : 'GET',
+			url: path,
+			success:function(data) {
+				console.log("success mani");
+				//$('#subscribe').hide();
+				//$('#unsubscribe').show();
+				butt.html(html);
+				butt.attr("class", butClass);
+			},
+			complete :function(data) {
+				console.log("complete");
+				//$('#' + coll_id).html(urlname + " " +"[s]");
+				//$('#' + coll_id).html(this.name + " " +"[s]");
+			},
+						error :function(data, error) {
+				console.log("error " + error);
+			}
 
+		});
+		console.log("finish");
+		}
+		else
+			{console.log("Not subscribed");}
 	});
-	console.log("finish");
-	}
-	else
-		{console.log("Not subscribed");}
-});
+
+	
+
+//$("#subscribe").click(function(e){
+//	var urlname = $('#collection-name').html();
+//	var subscribe = confirm("Are you sure you want to subscribe to " + urlname + "?");
+//	console.log(urlname);
+//	if(subscribe){
+//	$.ajax({
+//		type : 'GET',
+//		url: "/subscribe/" + urlname,
+//		success:function(data) {
+//			console.log("success");
+//			$('#subscribe').hide();
+//			$('#unsubscribe').show();
+//			
+//		},
+//		complete :function(data) {
+//			console.log("complete");
+//			$('#' + coll_id).html(urlname + " " +"[s]");
+//			//$('#' + coll_id).html(this.name + " " +"[s]");
+//		},
+//					error :function(data, error) {
+//			console.log("error " + error);
+//		}
+//
+//	});
+//	console.log("finish");
+//	}
+//	else
+//		{console.log("Not subscribed");}
+//});
 
 
 // add url as class to button and add url as id to row, then use button class as click function and find row id using url
 
-$("#unsubscribe").click(function(e){
-	var urlname = $('#collection-name').html();
-	var subscribe = confirm("Are you sure you want to unsubscribe to " + urlname + "?");
-	console.log(urlname);
-	if(subscribe){
-	$.ajax({
-		type : 'GET',
-		url: "/unsubscribe/" + urlname,
-		success:function(data) {
-			console.log("success");
-			//$("#unsubscribe").text("subscribe");
-			$('#unsubscribe').hide();
-			$('#subscribe').show();
-		},
-		complete :function(data) {
-			console.log("complete");
-			$('#' + coll_id).html(urlname);
-		},
-					error :function(data, error) {
-			console.log("error " + error);
-		}
-
+//$("#unsubscribe").click(function(e){
+//	var urlname = $('#collection-name').html();
+//	var subscribe = confirm("Are you sure you want to unsubscribe to " + urlname + "?");
+//	console.log(urlname);
+//	if(subscribe){
+//	$.ajax({
+//		type : 'GET',
+//		url: "/unsubscribe/" + urlname,
+//		success:function(data) {
+//			console.log("success");
+//			//$("#unsubscribe").text("subscribe");
+//			$('#unsubscribe').hide();
+//			$('#subscribe').show();
+//		},
+//		complete :function(data) {
+//			console.log("complete");
+//			$('#' + coll_id).html(urlname);
+//		},
+//					error :function(data, error) {
+//			console.log("error " + error);
+//		}
+//
+//	});
+//	console.log("finish");
+//	}
+//	else
+//		{console.log("Not subscribed");}
+//});
 	});
-	console.log("finish");
-	}
-	else
-		{console.log("Not subscribed");}
-});
 
 });
 
@@ -207,10 +263,10 @@ return  bytes.toFixed(1) +sizes[posttxt];
 		var table_cell2 = $('<td>' + "Size: " +  bytesToSize(this.sizebytes) + '</td>');
 		var table_cell3 = $('<td>' + "mirrors: " + this.mirrors + '</td>');
 		var table_cell4 = $('<td>' + "downloaders: " + this.downloaders + '</td>');
-		//if ((this.status == 0 || this.status == 1) && this.filename != 'NULL'){
-			var table_cell5 = $('<td>' + "files: " + '<a href= "/data/' + this.infohash + '/' + this.filename + '">' + this.filename + '</a>');
-//		}else {
-//			var table_cell5 = $('<td>', {html: NUll} ); }
+		if (this.status == 1 && this.filename != 'NULL'){
+			var table_cell5 = $('<td>' + "files: " + '<a href= "/data/' + this.infohash + '/' + this.filename + '">' + this.filename + '</a></td>');
+		}else {
+			var table_cell5 = $('<td></td>' ); }
 		var table_cell6 = $('<textarea class="form-control" rows="5">' + this.bibtex + '</textarea>')
 		var div_test = $('<div class="collapse" id="' + this.infohash + '"> </div>');
 		
